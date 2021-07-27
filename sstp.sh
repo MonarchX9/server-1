@@ -22,9 +22,9 @@ mkdir /home/sstp
 touch /home/sstp/sstp_account
 touch /var/lib/premium-script/data-user-sstp
 #detail nama perusahaan
-country=Malaysia
+country=MY
 state=Sabah
-locality=Kota Kinabalu
+locality=KotaKinabalu
 organization=KaizenVPN
 organizationalunit=KaizenVPN
 commonname=KaizenVPN
