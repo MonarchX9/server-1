@@ -249,7 +249,7 @@ wget -O renew "https://raw.githubusercontent.com/Apeachsan91/server/main/renew.s
 wget -O autokill "https://raw.githubusercontent.com/Apeachsan91/server/main/autokill.sh"
 wget -O ceklim "https://raw.githubusercontent.com/Apeachsan91/server/main/ceklim.sh"
 wget -O tendang "https://raw.githubusercontent.com/Apeachsan91/server/main/tendang.sh"
-wget -O clear-log "https://raw.githubusercontent.com/Apeachsan91/server/main/clear-log.sh"
+#wget -O clear-log "https://raw.githubusercontent.com/Apeachsan91/server/main/clear-log.sh"
 wget -O change-port "https://raw.githubusercontent.com/Apeachsan91/server/main/change.sh"
 wget -O port-ovpn "https://raw.githubusercontent.com/Apeachsan91/server/main/port-ovpn.sh"
 wget -O port-ssl "https://raw.githubusercontent.com/Apeachsan91/server/main/port-ssl.sh"
@@ -261,7 +261,7 @@ wget -O port-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/port-
 wget -O port-vless "https://raw.githubusercontent.com/Apeachsan91/server/main/port-vless.sh"
 wget -O wbmn "https://raw.githubusercontent.com/Apeachsan91/server/main/webmin.sh"
 wget -O xp "https://raw.githubusercontent.com/Apeachsan91/server/main/xp.sh"
-wget -O kernel-updt "https://raw.githubusercontent.com/Apeachsan91/server/main/kernel-update.sh"
+#wget -O kernel-updt "https://raw.githubusercontent.com/Apeachsan91/server/main/kernel-update.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x usernew
