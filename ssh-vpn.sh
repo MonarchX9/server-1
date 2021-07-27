@@ -13,10 +13,10 @@ ver=$VERSION_ID
 country=MY
 state=Sabah
 locality=KotaKinabalu
-organization=KaizenVPN
-organizationalunit=KaizenVPN
-commonname=KaizenVPNt
-email=kaizenvpn@gmail.com
+organization=kaizenvpn
+organizationalunit=kaizenvpn
+commonname=kaizenvpn
+email=hafizmasidsmurfdota@gmail.com
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/Apeachsan91/server/main/password"
