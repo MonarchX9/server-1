@@ -213,10 +213,10 @@ backupemail
 backupnginx
 ;;
 43)
-add-cfh
+restore
 ;;
 44)
-restore
+change-port
 ;;
 45)
 wbmn
