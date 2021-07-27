@@ -10,7 +10,7 @@ source /etc/os-release
 ver=$VERSION_ID
 
 #detail nama perusahaan
-country=Malaysia
+country=MY
 state=Sabah
 locality=KotaKinabalu
 organization=KaizenVPN
