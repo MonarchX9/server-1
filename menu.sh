@@ -63,19 +63,23 @@ echo -e "===========================[ ${color2}SUBDOMAIN${color3} ]=============
 echo -e " [${color1}37${color3}]    : Menambah ID Cloudflare"
 echo -e " [${color1}38${color3}]    : Membuat domain dan subdomain pointing ke Cloudflare"
 echo -e ""
+echo -e "========================[ ${color2}BACKUP & RESTORE${color3} ]===================="
+echo -e " [${color1}39${color3}]    : Backup file using Email"
+echo -e " [${color1}40${color3}]    : Backup file using Nginx"
+echo -e " [${color1}41${color3}]    : Autobackup using Email"
+echo -e " [${color1}42${color3}]    : Autobackup using Nginx"
+echo -e " [${color1}43${color3}]    : Restore Backup"
+echo -e ""
 echo -e "============================[ ${color2}SISTEM${color3} ]=========================="
-echo -e " [${color1}39${color3}]    : Menukar port servis"
-echo -e " [${color1}40${color3}]    : Autobackup Data VPS"
-echo -e " [${color1}41${color3}]    : Backup Data VPS"
-echo -e " [${color1}42${color3}]    : Restore Data VPS"
-echo -e " [${color1}43${color3}]    : Webmin Menu"
-echo -e " [${color1}44${color3}]    : Limit Bandwith Speed Server"
-echo -e " [${color1}45${color3}]    : Jumlah penggunaan Ram VPS"
-echo -e " [${color1}46${color3}]    : Reboot VPS"
-echo -e " [${color1}47${color3}]    : Speedtest VPS"
-echo -e " [${color1}48${color3}]    : Displaying System Information"
-echo -e " [${color1}49${color3}]    : Info Script Auto Install"
-echo -e " [${color1}50${color3}]    : Exit From VPS"
+echo -e " [${color1}44${color3}]    : Menukar port servis"
+echo -e " [${color1}45${color3}]    : Webmin Menu"
+echo -e " [${color1}46${color3}]    : Limit Bandwith Speed Server"
+echo -e " [${color1}47${color3}]    : Jumlah penggunaan Ram VPS"
+echo -e " [${color1}48${color3}]    : Reboot VPS"
+echo -e " [${color1}49${color3}]    : Speedtest VPS"
+echo -e " [${color1}50${color3}]    : Displaying System Information"
+echo -e " [${color1}51${color3}]    : Info Script Auto Install"
+echo -e " [${color1}52${color3}]    : Exit From VPS"
 echo -e ""
 echo -e "================================================================"
 echo -e ""
@@ -197,39 +201,45 @@ add-cff
 add-cfh
 ;;
 39)
-change-port
+autobackupemail
 ;;
 40)
-autobackup
+autobackupnginx
 ;;
 41)
-backup
+backupemail
 ;;
 42)
-restore
+backupnginx
 ;;
 43)
-wbmn
+add-cfh
 ;;
 44)
-limit-speed
+restore
 ;;
 45)
-ram
+wbmn
 ;;
 46)
-reboot
+limit-speed
 ;;
 47)
-speedtest
+ram
 ;;
 48)
-info
+reboot
 ;;
 49)
-about
+speedtest
 ;;
 50)
+info
+;;
+51)
+about
+;;
+52)
 exit
 ;;
 *)
