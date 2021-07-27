@@ -279,7 +279,7 @@ chmod +x tendang
 chmod +x ceklim
 chmod +x ram
 chmod +x renew
-chmod +x clear-log
+#chmod +x clear-log
 chmod +x change-port
 chmod +x port-ovpn
 chmod +x port-ssl
@@ -291,7 +291,7 @@ chmod +x port-ws
 chmod +x port-vless
 chmod +x wbmn
 chmod +x xp
-chmod +x kernel-updt
+#chmod +x kernel-updt
 echo "0 0 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 1 * * * root xp" >> /etc/crontab
 # remove unnecessary files
