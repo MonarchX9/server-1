@@ -26,14 +26,18 @@ logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
 cd /usr/bin
-wget -O autobackup "https://raw.githubusercontent.com/Apeachsan91/server/main/autobackup.sh"
-wget -O backup "https://raw.githubusercontent.com/Apeachsan91/server/main/backup.sh"
+wget -O autobackupemail "https://raw.githubusercontent.com/Apeachsan91/server/main/autobackupemail.sh"
+wget -O autobackupnginx "https://raw.githubusercontent.com/Apeachsan91/server/main/autobackupnginx.sh"
+wget -O backupemail "https://raw.githubusercontent.com/Apeachsan91/server/main/backupemail.sh"
+wget -O backupnginx "https://raw.githubusercontent.com/Apeachsan91/server/main/backupnginx.sh"
 wget -O bckp "https://raw.githubusercontent.com/Apeachsan91/server/main/bckp.sh"
 wget -O restore "https://raw.githubusercontent.com/Apeachsan91/server/main/restore.sh"
 wget -O strt "https://raw.githubusercontent.com/Apeachsan91/server/main/strt.sh"
 wget -O limit-speed "https://raw.githubusercontent.com/Apeachsan91/server/main/limit-speed.sh"
-chmod +x autobackup
-chmod +x backup
+chmod +x autobackupemail
+chmod +x autobackupnginx
+chmod +x backupemail
+chmod +x backupnginx
 chmod +x bckp
 chmod +x restore
 chmod +x strt
