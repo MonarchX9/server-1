@@ -241,6 +241,8 @@ about
 ;;
 52)
 exit
+cd
+clear
 ;;
 *)
 clear
