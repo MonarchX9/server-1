@@ -1,4 +1,5 @@
 #!/bin/bash
+# By KaizenVPN
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
