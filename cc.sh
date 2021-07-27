@@ -13,16 +13,16 @@ echo "Only For Premium Users"
 exit 0
 fi
 read -p "Sila masukkan Domain anda :" domain
-read -p "Sila masukkan SubDomain anda :" sub
+#read -p "Sila masukkan SubDomain anda :" sub
 domain=$domain
-sub=$sub
-SUB_DOMAIN=${sub}.$domain
-echo -e "SUB_DOMAIN=${sub}.${domain}" >> /root/mail.conf
+#sub=$sub
+#SUB_DOMAIN=${sub}.$domain
+#echo -e "SUB_DOMAIN=${sub}.${domain}" >> /root/mail.conf
 echo -e "domain=$domain" >> /root/mail.conf
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
-echo "Host : $SUB_DOMAIN"
+#echo "Host : $SUB_DOMAIN"
 echo "Host : $domain"
-echo $SUB_DOMAIN > /root/domain
+#echo $SUB_DOMAIN > /root/domain
 echo $domain > /root/domain
 rm -f /root/cf.sh
