@@ -61,6 +61,9 @@ chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
 clear
+IP=$(wget -qO- icanhazip.com);
+ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
+ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 echo " "
 echo "Installation has been completed!!"
 echo " "
