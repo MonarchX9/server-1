@@ -61,9 +61,6 @@ chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
 clear
-IP=$(wget -qO- icanhazip.com);
-ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
-ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 echo " "
 echo "Installation has been completed!!"
 echo " "
@@ -74,9 +71,6 @@ echo "   Service & Port"  | tee -a log-install.txt
 echo "   ---------------" | tee -a log-install.txt
 echo "   - OpenSSH                 : 22"  | tee -a log-install.txt
 echo "   - OpenVPN                 : TCP $ovpn, UDP $ovpn2, SSL 442"  | tee -a log-install.txt
-echo "   - OpenVPN Download TCP    : TCP $ovpn http://$IP:81/client-tcp-$ovpn.ovpn"  | tee -a log-install.txt
-echo "   - OpenVPN Download UDP    : UDP $ovpn2 http://$IP:81/client-udp-$ovpn2.ovpn"  | tee -a log-install.txt
-echo "   - OpenVPN Download SSL    : SSL 442 http://$IP:81/client-tcp-ssl.ovpn"  | tee -a log-install.txt
 echo "   - Stunnel4                : 443, 777"  | tee -a log-install.txt
 echo "   - Dropbear                : 109, 143"  | tee -a log-install.txt
 echo "   - Squid Proxy             : 3128, 8080 (limit to IP Server)"  | tee -a log-install.txt
