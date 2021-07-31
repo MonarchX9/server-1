@@ -57,7 +57,7 @@ cat>/etc/v2ray/$user-none.json<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "${domain}",
+      "add": "api-cua.maxis.com.my.kaizenmaxis.xyz",
       "port": "${none}",
       "id": "${uuid}",
       "aid": "2",
