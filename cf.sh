@@ -13,11 +13,11 @@ echo "Only For Premium Users"
 exit 0
 fi
 apt install jq curl -y
-DOMAIN=datoxvpn.xyz
+DOMAIN=kaizenvps.xyz
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.datoxvpn.xyz
-CF_ID=gaway821@gmail.com
-CF_KEY=c84fd4419af5c57a1f4048948f2ca0370589a
+SUB_DOMAIN=${sub}.kaizenvps.xyz
+CF_ID=hazboyz@gmail.com
+CF_KEY=4edad025afe10f3c7adeabe95f810c00a1b5f
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
 echo "Updating DNS for ${SUB_DOMAIN}..."
