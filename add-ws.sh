@@ -64,7 +64,7 @@ cat>/etc/v2ray/$user-none.json<<EOF
       "net": "ws",
       "path": "/v2ray",
       "type": "none",
-      "host": "",
+      "host": "api-cua.maxis.com.my",
       "tls": "none"
 }
 EOF
