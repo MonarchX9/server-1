@@ -13,83 +13,50 @@ echo "Only For Premium Users"
 exit 0
 fi
 clear
-source /var/lib/premium-script/ipvps.conf
-if [[ "$IP" = "" ]]; then
-domain=$(cat /etc/v2ray/domain)
-else
-domain=$IP
-fi
-tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
-none="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		read -rp "User: " -e user
-		CLIENT_EXISTS=$(grep -w $user /etc/v2ray/config.json | wc -l)
+read -p "Username : " Login
+read -p "Password : " Pass
+read -p "Expired (hari): " masaaktif
 
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "A client with the specified name was already created, please choose another name."
-			exit 1
-		fi
-	done
-uuid=$(cat /proc/sys/kernel/random/uuid)
-read -p "Expired (days): " masaaktif
-exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"2"',"email": "'""$user""'"' /etc/v2ray/config.json
-sed -i '/#none$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"2"',"email": "'""$user""'"' /etc/v2ray/none.json
-cat>/etc/v2ray/$user-tls.json<<EOF
-      {
-      "v": "2",
-      "ps": "${user}",
-      "add": "${domain}",
-      "port": "${tls}",
-      "id": "${uuid}",
-      "aid": "2",
-      "net": "ws",
-      "path": "/v2ray",
-      "type": "none",
-      "host": "",
-      "tls": "tls"
-}
-EOF
-cat>/etc/v2ray/$user-none.json<<EOF
-      {
-      "v": "2",
-      "ps": "${user}",
-      "add": "api-cua.maxis.com.my.kaizenmaxis.xyz",
-      "port": "${none}",
-      "id": "${uuid}",
-      "aid": "2",
-      "net": "ws",
-      "path": "/v2ray",
-      "type": "none",
-      "host": "api-cua.maxis.com.my",
-      "tls": "none"
-}
-EOF
-vmess_base641=$( base64 -w 0 <<< $vmess_json1)
-vmess_base642=$( base64 -w 0 <<< $vmess_json2)
-vmesslink1="vmess://$(base64 -w 0 /etc/v2ray/$user-tls.json)"
-vmesslink2="vmess://$(base64 -w 0 /etc/v2ray/$user-none.json)"
-systemctl restart v2ray
-systemctl restart v2ray@none
-service cron restart
+sleep 1
+echo Ping Host
+echo Cek Hak Akses...
+sleep 0.5
+echo Permission Accepted
 clear
+sleep 0.5
+echo Membuat Akun: $Login
+sleep 0.5
+echo Setting Password: $Pass
+sleep 0.5
+clear
+useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
+exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
+IP=$(wget -qO- icanhazip.com);
+ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
+sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
+ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
+ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
+echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 echo -e ""
-echo -e "==========-V2RAY/VMESS-=========="
-echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}"
-echo -e "port TLS       : ${tls}"
-echo -e "port none TLS  : ${none}"
-echo -e "id             : ${uuid}"
-echo -e "alterId        : 2"
-echo -e "Security       : auto"
-echo -e "network        : ws"
-echo -e "path           : /v2ray"
-echo -e "================================="
-echo -e "link TLS       : ${vmesslink1}"
-echo -e "================================="
-echo -e "link none TLS  : ${vmesslink2}"
-echo -e "================================="
-echo -e "Expired On     : $exp"
+echo -e "==============================="
+echo -e "      MAKLUMAT PORT ANDA       "
+echo -e "==============================="
+echo -e "Host            : $IP"
+echo -e "OpenSSH         : 22"
+echo -e "Dropbear        : 109, 143"
+echo -e "SSL/TLS         : $ssl"
+echo -e "Port Squid      : $sqd"
+echo -e "badvpn          : 7100-7300"
+echo -e "OpenVPN TCP     : TCP $ovpn http://$IP:81/client-tcp-$ovpn.ovpn"
+echo -e "OpenVPN UDP     : UDP $ovpn2 http://$IP:81/client-udp-$ovpn2.ovpn"
+echo -e "OpenVPN SSL     : SSL 442 http://$IP:81/client-tcp-ssl.ovpn"
+echo -e ""
+echo -e "==============================="
+echo -e "      MAKLUMAT AKAUN ANDA      "
+echo -e "==============================="
+echo -e "Username       : $Login "
+echo -e "Password       : $Pass"
+echo -e "Expired pada   : $exp"
+echo -e "==============================="
+echo -e " TERIMA KASIH KERANA MELANGGAN "
+echo -e "==============================="
