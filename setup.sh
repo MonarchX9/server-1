@@ -55,7 +55,7 @@ WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
 systemctl enable autosett
-wget -O /etc/set.sh "https://raw.githubusercontent.com/Apeachsan91/server/main/set.sh"
+wget -O /etc/set.sh "https://github.com/Apeachsan91/server/raw/main/set.sh"
 chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
