@@ -16,11 +16,7 @@ exit 0
 fi
 mkdir /var/lib/premium-script;
 echo "IP=" >> /var/lib/premium-script/ipvps.conf
-sub=4wud.pmserver.xyz
-domain=$sub
-echo $domain > /root/domain
-#wget https://raw.githubusercontent.com/Apeachsan91/server/main/cc.sh && chmod +x cc.sh && ./cc.sh
-#wget https://raw.githubusercontent.com/Apeachsan91/server/main/cf.sh && chmod +x cf.sh && ./cf.sh
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/cf.sh && chmod +x cf.sh && ./cf.sh
 
 #install ssh ovpn
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
