@@ -296,8 +296,8 @@ chmod +x port-vless
 chmod +x wbmn
 chmod +x xp
 #chmod +x kernel-updt
-echo "0 0 * * * root clear-log && reboot" >> /etc/crontab
-echo "0 1 * * * root xp" >> /etc/crontab
+echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
+echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
 cd
 apt autoclean -y
