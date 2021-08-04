@@ -58,5 +58,4 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 echo "DONE...!"
 echo "Your new Domain is : ${domain}"
 echo "Your new SubDomain is : ${SUB_DOMAIN}"
-echo $domain > /root/domain
 echo $SUB_DOMAIN > /root/domain
