@@ -13,9 +13,9 @@ echo "Only For Premium Users"
 exit 0
 fi
 apt install jq curl -y
-DOMAIN=kaizensystem.xyz
+DOMAIN=kaizendigi1my.xyz
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.kaizensystem.xyz
+SUB_DOMAIN=${sub}.kaizendigi1my.xyz
 CF_ID=hazboyz@gmail.com
 CF_KEY=4edad025afe10f3c7adeabe95f810c00a1b5f
 set -euo pipefail
