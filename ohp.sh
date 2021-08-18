@@ -29,7 +29,7 @@ sleep 3;clear
 rm /usr/bin/kaizen
 cat> /usr/bin/kaizen << END
 #!/bin/bash
-#screen -dmS dropbear ohpserver -port 50001 -proxy $MYIP:80443 -tunnel $MYIP:143
+screen -dmS dropbear ohpserver -port 50001 -proxy $MYIP:80443 -tunnel $MYIP:143
 screen -dmS openvpn ohpserver -port 50000 -proxy $MYIP:80443 -tunnel $MYIP:1194
 #screen -dmS vless ohpserver -port 8058 -proxy $MYIP:80443 -tunnel $MYIP:880
 END
@@ -39,7 +39,7 @@ echo -e "adding kaizen for ohpserver"
 sleep 3;clear
 cat> /usr/bin/kaizen << END
 #!/bin/bash
-#screen -dmS dropbear ohpserver -port 50001 -proxy $MYIP:80443 -tunnel $MYIP:143
+screen -dmS dropbear ohpserver -port 50001 -proxy $MYIP:80443 -tunnel $MYIP:143
 screen -dmS openvpn ohpserver -port 50000 -proxy $MYIP:80443 -tunnel $MYIP:1194
 #screen -dmS vless ohpserver -port 8058 -proxy $MYIP:80443 -tunnel $MYIP:880
 END
