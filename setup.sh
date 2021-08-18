@@ -16,24 +16,32 @@ exit 0
 fi
 mkdir /var/lib/premium-script;
 echo "IP=" >> /var/lib/premium-script/ipvps.conf
+
+#install cloudlflare
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/cf.sh && chmod +x cf.sh && ./cf.sh
 
 #install ssh ovpn
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+
+#install sstp
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/ohp.sh && chmod +x ohp.sh && screen -S sstp ./ohp.sh
+
 #install ssr
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+
 #installwg
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+
 #install v2ray
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+
 #install L2TP
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 
-
+#install ohp
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/ohp.sh && chmod +x ohp.sh && screen -S sstp ./ohp.sh
 
 rm -f /root/ssh-vpn.sh
 rm -f /root/sstp.sh
@@ -43,6 +51,8 @@ rm -f /root/ssr.sh
 rm -f /root/ins-vt.sh
 rm -f /root/ipsec.sh
 rm -f /root/set-br.sh
+rm -f /root/ohp.sh
+
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
