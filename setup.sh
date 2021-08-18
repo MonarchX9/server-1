@@ -41,7 +41,7 @@ wget https://raw.githubusercontent.com/Apeachsan91/server/main/ipsec.sh && chmod
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 
 #install ohp
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/ohp.sh && chmod +x ohp.sh && screen -S sstp ./ohp.sh
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 
 rm -f /root/ssh-vpn.sh
 rm -f /root/sstp.sh
