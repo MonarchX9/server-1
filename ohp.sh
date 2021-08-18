@@ -1,87 +1,92 @@
 #!/bin/bash
-# Program: OHPServer Kaizen
+#Open HTTP Puncher By KaizenVPN
+#Direct Proxy Squid For OpenVPN TCP
 
-export DEBIAN_FRONTEND=noninteractive
-MYIP=$(wget -qO- icanhazip.com);
+RED='\e[1;31m'
+GREEN='\e[0;32m'
+BLUE='\e[0;34m'
+NC='\e[0m'
+MYIP=$(wget -qO- https://icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
-NET=$(ip -o $ANU -4 route show to default | awk '{print $5}');
-source /etc/os-release
-ver=$VERSION_ID
 
-# installing ohpserver
-if [[ -e /usr/bin/ohpserver  ]]; then
-echo -e "ohpserver already install"
-sleep 3;clear
-else
-echo -e "installing ohpserver"
-sleep 3;clear
-wget https://github.com/lfasmpao/open-http-puncher/releases/download/0.1/ohpserver-linux32.zip
-unzip ohpserver-linux32.zip
-rm *.zip
-mv ohpserver /usr/bin/
-chmod +x /usr/bin/ohpserver
-fi
+#Update Repository VPS
+clear
+apt update 
+apt-get -y upgrade
 
-# adding kaizen for ohpserver
-if [[ -e /usr/bin/kaizen  ]]; then
-echo -e "kaizen for ohpserver exist but will be update"
-sleep 3;clear
-rm /usr/bin/kaizen
-cat> /usr/bin/kaizen << END
-#!/bin/bash
-screen -dmS dropbear ohpserver -port 50001 -proxy $MYIP:80443 -tunnel $MYIP:143
-screen -dmS openvpn ohpserver -port 50000 -proxy $MYIP:80443 -tunnel $MYIP:1194
-#screen -dmS vless ohpserver -port 8058 -proxy $MYIP:80443 -tunnel $MYIP:880
+#Port Server
+Port_OpenVPN_TCP='1194';
+Port_Squid='3128';
+Port_OHP='50001';
+
+#Installing ohp Server
+cd 
+wget -O /usr/local/bin/ohp "https://github.com/Apeachsan91/server/raw/main/ohp"
+chmod +x /usr/local/bin/ohp
+
+#Buat File OpenVPN TCP OHP
+cat > /etc/openvpn/tcp-ohp.ovpn <<END
+setenv CLIENT_CERT 0
+setenv opt block-outside-dns
+client
+dev tun
+proto tcp
+remote "bug" 1194
+persist-tun
+persist-key
+persist-remote-ip
+comp-lzo
+reneg-sec 0
+pull
+resolv-retry infinite
+remote-cert-tls server
+verb 3
+auth-user-pass
+cipher none
+auth none
+auth-nocache
+script-security 2
+tls-version-min 1.2
+tls-cipher TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256
+http-proxy xxxxxxxxx 50001
+http-proxy-option VERSION 1.1
+http-proxy-option CUSTOM-HEADER ""
+http-proxy-option CUSTOM-HEADER "Host: "
+http-proxy-option CUSTOM-HEADER "X-Forwarded-Host: "
+http-proxy-option CUSTOM-HEADER ""
 END
-chmod +x /usr/bin/kaizen
-else
-echo -e "adding kaizen for ohpserver"
-sleep 3;clear
-cat> /usr/bin/kaizen << END
-#!/bin/bash
-screen -dmS dropbear ohpserver -port 50001 -proxy $MYIP:80443 -tunnel $MYIP:143
-screen -dmS openvpn ohpserver -port 50000 -proxy $MYIP:80443 -tunnel $MYIP:1194
-#screen -dmS vless ohpserver -port 8058 -proxy $MYIP:80443 -tunnel $MYIP:880
-END
-chmod +x /usr/bin/kaizen
-fi
+sed -i $MYIP2 /etc/openvpn/tcp-ohp.ovpn;
 
-# adding kaizen service for running
-if [[ -e /etc/systemd/system/kaizen.service  ]]; then
-echo -e "kaizen service already adding"
-sleep 3;clear
-else
-echo -e "adding kaizen service for running"
-sleep 3;clear
-cat> /etc/systemd/system/kaizen.service << END
+# masukkan certificatenya ke dalam config client TCP 1194
+echo '<ca>' >> /etc/openvpn/tcp-ohp.ovpn
+cat /etc/openvpn/server/ca.crt >> /etc/openvpn/tcp-ohp.ovpn
+echo '</ca>' >> /etc/openvpn/tcp-ohp.ovpn
+cp /etc/openvpn/tcp-ohp.ovpn /home/vps/public_html/tcp-ohp.ovpn
+clear
+cd 
+
+#Buat Service Untuk OHP
+cat > /etc/systemd/system/ohp.service <<END
 [Unit]
-Description=OHP KAIZEN
+Description=Direct Squid Proxy For OpenVPN TCP
+Documentation=https://t.me/KaizenA
+Wants=network.target
+After=network.target
+
 [Service]
-Type=forking
-ExecStart=/usr/bin/kaizen
+ExecStart=/usr/local/bin/ohp -port 50001 -proxy 127.0.0.1:3128 -tunnel 127.0.0.1:1194
+Restart=always
+RestartSec=3
+
 [Install]
 WantedBy=multi-user.target
 END
-systemctl daemon-reload
-service kaizen start
-systemctl enable kaizen
-fi
 
-if [[ -e /root/log-ohp.txt  ]]; then
-rm /root/log-ohp.txt
-echo -e "Installation has been completed!!"
+systemctl daemon-reload
+systemctl enable ohp
+systemctl restart ohp
 echo ""
-echo ""
-echo "DROPBEAR : 8170" | tee -a log-ohp.txt
-echo "Openvpn Non : 50000" | tee -a log-ohp.txt
-echo ""
-echo ""
-read -n 1 -r -s -p $'Press any key to reboot...\n';reboot
-else
-echo -e "Installation has been completed!!"
-echo ""
-echo ""
-echo "DROPBEAR : 50001" | tee -a log-ohp.txt
-echo "OPENVPN : 50000" | tee -a log-ohp.txt
-echo ""
-fi
+echo -e "${GREEN}Done Installing OHP Server${NC}"
+echo -e "Port OVPN OHP TCP: $ohpp"
+echo -e "Link Download OVPN OHP: http://$MYIP:81/tcp-ohp.ovpn"
+echo -e "Script By KaizenVPN"
