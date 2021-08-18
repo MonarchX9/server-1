@@ -84,6 +84,4 @@ echo ""
 echo "DROPBEAR : 50001" | tee -a log-ohp.txt
 echo "OPENVPN : 50000" | tee -a log-ohp.txt
 echo ""
-echo ""
-read -n 1 -r -s -p $'Press any key to reboot...\n';reboot
 fi
