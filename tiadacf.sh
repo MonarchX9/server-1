@@ -1,5 +1,7 @@
   
 #!/bin/bash
+cd
+clear
 echo "
                              _---__
                           _-       /--______
