@@ -59,3 +59,4 @@ echo "DONE...!"
 echo "Your new Domain is : ${domain}"
 echo "Your new SubDomain is : ${SUB_DOMAIN}"
 echo $SUB_DOMAIN > /root/domain
+certv2ray
