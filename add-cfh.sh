@@ -13,21 +13,19 @@ echo "Only For Premium Users"
 exit 0
 fi
 clear
-source /root/mail.conf
+source /root/mail1.conf
+source /root/mail2.conf
 cd
 clear
 echo ""
 read -p "Sila masukkan Domain anda :" domain
 read -p "Sila masukkan SubDomain anda :" sub
 domain=$domain
-#DOMAIN=kaizenvps.xyz
 sub=$sub
 echo -e "SUB_DOMAIN=${sub}.${domain}" >> /root/mail.conf
 SUB_DOMAIN=${sub}.${domain}
 CF_ID=${CF_ID}
 CF_KEY=${CF_KEY}
-#CF_ID=hazboyz@gmail.com
-#CF_KEY=4edad025afe10f3c7adeabe95f810c00a1b5f
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
 echo "Updating DNS for ${SUB_DOMAIN}..."
