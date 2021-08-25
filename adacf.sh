@@ -2,6 +2,11 @@
 cd /root
 CF_ID=${CF_ID}
 CF_KEY=${CF_KEY}
+echo -e ""
+echo "==================================="
+echo "  ANDA MEMPUNYAI AKAUN CLOUDFLARE  "
+echo "==================================="
+echo -e ""
 read -e -p " Sila masukkan email Cloudflare anda:" CF_ID
 read -e -p " Sila masukkan Api Key Cloudflare anda:" CF_KEY
 echo -e "CF_ID=${CF_ID}" >> /root/mail1.conf
