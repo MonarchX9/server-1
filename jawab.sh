@@ -22,12 +22,12 @@ echo "
                       \XXXXXXXXXXXXXXXXXXXXXXXXXX/
                        ''VXXXXXXXXXXXXXXXXXXV''"
 echo -e ""
-echo "=========================================="
-echo "* SELAMAT DATANG KE SISTEM SCRIPT KAIZEN *"
-echo "=========================================="
+echo "========================================================"
+echo "*        SELAMAT DATANG KE SISTEM SCRIPT KAIZEN         *"
+echo "========================================================"
 echo -e ""
-echo "Sebelum kita bermula, sila jawab soalan berikut."
-sleep 2
+echo -e "Sebelum kita bermula, sila jawab soalan berikut."
+sleep 1
 echo -e ""
 echo -e "Adakah anda mempunyai akaun cloudflare? Anda dikehendaki memasukkan email dan api key cloudflare anda sekiranya ada."
 echo -e ""
