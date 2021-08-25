@@ -34,6 +34,7 @@ echo -e ""
 echo -e "Sekiranya ada, sila tekan 1. Sekiranya tidak ada sila taip 2 untuk memasukkan domain sendiri."
 echo -e "1. Ya, saya ada akaun cloudflare."
 echo -e "2. Tidak, saya tiada akaun cloudflare."
+echo -e ""
 read -p "Sila berikan jawapan anda (1/2): " jawab
 echo -e ""
 case $jawab in
@@ -45,6 +46,6 @@ wget https://raw.githubusercontent.com/Apeachsan91/server/main/tiadacf.sh && chm
 ;;
 *)
 clear
-jawab
+./jawab
 ;;
 esac
