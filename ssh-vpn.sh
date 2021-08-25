@@ -237,6 +237,7 @@ wget -O about "https://raw.githubusercontent.com/Apeachsan91/server/main/about.s
 wget -O menu "https://raw.githubusercontent.com/Apeachsan91/server/main/menu.sh"
 wget -O add-cff "https://raw.githubusercontent.com/Apeachsan91/all/main/add-cff.sh"
 wget -O add-cfh "https://raw.githubusercontent.com/Apeachsan91/all/main/add-cfh.sh"
+wget -O add-dom "https://raw.githubusercontent.com/Apeachsan91/server/main/add-dom.sh"
 wget -O usernew "https://raw.githubusercontent.com/Apeachsan91/server/main/usernew.sh"
 wget -O trial "https://raw.githubusercontent.com/Apeachsan91/server/main/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/Apeachsan91/server/main/hapus.sh"
@@ -268,6 +269,7 @@ chmod +x add-host
 chmod +x menu
 chmod +x add-cff
 chmod +x add-cfh
+chmod +x add-dom
 chmod +x usernew
 chmod +x trial
 chmod +x hapus
