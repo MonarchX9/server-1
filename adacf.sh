@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /root
+clear
 CF_ID=${CF_ID}
 CF_KEY=${CF_KEY}
 echo "
