@@ -1,33 +1,47 @@
 #!/bin/bash
-red='\e[1;31m'
-green='\e[0;32m'
-NC='\e[0m'
-MYIP=$(wget -qO- icanhazip.com);
-echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/Apeachsan91/server/main/ipallow | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
-echo -e "${green}Permission Accepted...${NC}"
-else
-echo -e "${red}Permission Denied!${NC}";
-echo "Only For Premium Users"
-exit 0
-fi
+cd /root
 clear
 source /root/mail1.conf
 source /root/mail2.conf
+echo "
+                             _---__
+                          _-       /--______
+                     __--( /     \ )XXXXXXXXXXX\v.
+                   .-XXX(   O   O  )XXXXXXXXXXXXXXX-
+                  /XXX(       U     )        XXXXXXX
+                /XXXXX(              )--_  XXXXXXXXXXX
+               /XXXXX/ (      O     )   XXXXXX   \XXXXX
+               XXXXX/   /            XXXXXX   \__ \XXXXX
+              XXXXXX__/          XXXXXX         \__---->
+      ---___  XXX__/          XXXXXX      \__         /
+         \-  --__/   ___/\  XXXXXX            /  ___--/=
+          \-\    ___/    XXXXXX              '--- XXXXXX
+            \-\/XXX\ XXXXXX                      /XXXXX
+               \XXXXXXXXX   \                    /XXXXX/
+                \XXXXXX      >                 _/XXXXX/
+                  \XXXXX--__/              __-- XXXX/
+                   -XXXXXXXX---------------  XXXXXX-
+                      \XXXXXXXXXXXXXXXXXXXXXXXXXX/
+                       ''VXXXXXXXXXXXXXXXXXXV''"
+echo -e ""
+echo -e ""
+echo "================================================"
+echo "  MENAMBAH DOMAIN & SUBDOMAIN UNTUK CLOUDFLARE  "
+echo "================================================"
+echo -e ""
+read -p "Sila masukkan Domain anda :" domain
+read -p "Sila masukkan SubDomain anda :" sub
+echo -e ""
+domain=$domain
+sub=$sub
+SUB_DOMAIN=${sub}.${domain}
+set -euo pipefail
+IP=$(wget -qO- icanhazip.com);
 cd
 clear
 echo ""
-read -p "Sila masukkan Domain anda :" domain
-read -p "Sila masukkan SubDomain anda :" sub
-domain=$domain
-sub=$sub
-echo -e "SUB_DOMAIN=${sub}.${domain}" >> /root/mail.conf
-SUB_DOMAIN=${sub}.${domain}
-CF_ID=${CF_ID}
-CF_KEY=${CF_KEY}
-set -euo pipefail
-IP=$(wget -qO- icanhazip.com);
+echo "DONE...!"
+echo ""
 echo "Updating DNS for ${SUB_DOMAIN}..."
 
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${domain}&status=active" \
@@ -53,8 +67,18 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
-echo "DONE...!"
-echo "Your new Domain is : ${domain}"
-echo "Your new SubDomain is : ${SUB_DOMAIN}"
+echo ""
+echo "DONE...!"     
+echo ""
+echo "===================================="
+echo "Your Cloudflare & Domain Information"
+echo "===================================="
+echo "Domain         : ${domain}"
+echo "SubDomain      : ${SUB_DOMAIN}"
+echo "===================================="
+echo ""
 echo $SUB_DOMAIN > /root/domain
+echo $CF_ID > /root/mail1.conf
+echo $CF_KEY > /root/mail2.conf
+sleep 2
 certv2ray
