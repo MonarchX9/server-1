@@ -1,8 +1,6 @@
 #!/bin/bash
 cd /root
 clear
-CF_ID=${CF_ID}
-CF_KEY=${CF_KEY}
 echo "
                              _---__
                           _-       /--______
@@ -28,30 +26,24 @@ echo -e ""
 echo "==================================="
 echo "  ANDA MEMPUNYAI AKAUN CLOUDFLARE  "
 echo "==================================="
+echo ""
+read -p " Sila masukkan email Cloudflare anda:" CF_ID
+read -p " Sila masukkan Api Key Cloudflare anda:" CF_KEY
+read -p " Sila masukkan Domain anda :" domain
+read -p " Sila masukkan SubDomain anda :" sub
 echo -e ""
-read -e -p " Sila masukkan email Cloudflare anda:" CF_ID
-read -e -p " Sila masukkan Api Key Cloudflare anda:" CF_KEY
-echo -e "CF_ID=${CF_ID}" >> /root/mail1.conf
-echo -e "CF_KEY=${CF_KEY}" >> /root/mail2.conf
-cd
-clear
-echo "DONE...!"
-echo "Your ID Cloudflare"
-echo -e "==============================="
-echo "Email          : ${CF_ID}"
-echo "Api Key        : ${CF_KEY}"
-echo -e "==============================="
-echo -e ""
-read -p "Sila masukkan Domain anda :" domain
-read -p "Sila masukkan SubDomain anda :" sub
-domain=$domain
-sub=$sub
-echo -e "SUB_DOMAIN=${sub}.${domain}" >> /root/mail.conf
-SUB_DOMAIN=${sub}.${domain}
 CF_ID=${CF_ID}
 CF_KEY=${CF_KEY}
+domain=$domain
+sub=$sub
+SUB_DOMAIN=${sub}.${domain}
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
+cd
+clear
+echo ""
+echo "DONE...!"
+echo ""
 echo "Updating DNS for ${SUB_DOMAIN}..."
 
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${domain}&status=active" \
@@ -77,9 +69,18 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
-echo "DONE...!"
-echo "Your new Domain is : ${domain}"
-echo "Your new SubDomain is : ${SUB_DOMAIN}"
+echo ""
+echo "====================================="
+echo "Your Cloudflare & Domain Informattion"
+echo "====================================="
+echo "Email          : ${CF_ID}"
+echo "Api Key        : ${CF_KEY}"
+echo "Domain         : ${domain}"
+echo "SubDomain      : ${SUB_DOMAIN}"
+echo "====================================="
+echo ""
 echo $SUB_DOMAIN > /root/domain
+echo $CF_ID > /root/mail1.conf
+echo $CF_KEY > /root/mail2.conf
 sleep 2
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/afterjawab.sh && chmod +x afterjawab.sh && ./afterjawab.sh
