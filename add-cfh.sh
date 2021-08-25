@@ -2,7 +2,7 @@
 cd /root
 clear
 CF_ID=$(cat /root/mail1.conf)
-CF_KEY=$(cat /root/mail2.conf})
+CF_KEY=$(cat /root/mail2.conf)
 echo "
                              _---__
                           _-       /--______
