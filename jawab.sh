@@ -31,7 +31,10 @@ sleep 2
 echo -e ""
 echo "Adakah anda mempunyai akaun cloudflare? Anda dikehendaki memasukkan email dan api key cloudflare anda sekiranya ada."
 echo -e ""
-read -p "Sekiranya ada, sila tekan 1. Sekiranya tidak ada sila taip 2 untuk memasukkan domain sendiri (1/2) " jawab
+read -"Sekiranya ada, sila tekan 1. Sekiranya tidak ada sila taip 2 untuk memasukkan domain sendiri.
+echo -e "1) Ya, saya ada akaun cloudflare."
+echo -e "2) Tidak, saya tiada akaun cloudflare."
+read -p "Sila berikan jawapan anda (1/2): " jawab
 echo -e ""
 case $jawab in
 1)
