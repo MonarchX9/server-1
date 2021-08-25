@@ -19,4 +19,4 @@ echo "IP=" >> /var/lib/premium-script/ipvps.conf
 clear
 
 #jawab
-wget -O jawab "https://raw.githubusercontent.com/Apeachsan91/server/main/jawab.sh" && chmod +x jawab && jawab
+wget -O jawab "https://raw.githubusercontent.com/Apeachsan91/server/main/jawab.sh" && chmod +x jawab && ./jawab
