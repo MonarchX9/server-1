@@ -5,17 +5,24 @@ sleep 1
 echo Cek Hak Akses...
 sleep 0.5
 cd
+
 #Install system auto run
 wget -O /etc/systemd/system/ws-ssh.service https://raw.githubusercontent.com/Apeachsan91/server/main/ws-ssh.service && chmod +x /etc/systemd/system/ws-ssh.service
+wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/Apeachsan91/server/main/ws-dropbear.service && chmod +x /etc/systemd/system/ws-dropbear.service
 wget -O /etc/systemd/system/ws-ovpn.service https://raw.githubusercontent.com/Apeachsan91/server/main/ws-ovpn.service && chmod +x /etc/systemd/system/ws-ovpn.service
-#Install Websocket-SSH
 
+#Install Websocket-SSH
 wget -O /usr/local/bin/ws-ssh https://raw.githubusercontent.com/Apeachsan91/server/main/ws-ssh && chmod +x /usr/local/bin/ws-ssh
+wget -O /usr/local/bin/ws-ssh https://raw.githubusercontent.com/Apeachsan91/server/main/ws-ssh && chmod +x /usr/local/bin/ws-dropbear
 wget -O /usr/local/bin/ws-ovpn https://raw.githubusercontent.com/Apeachsan91/server/main/ws-ovpn && chmod +x /usr/local/bin/ws-ovpn
 
 #Enable & Start ws-ssh service
 systemctl enable ws-ssh.service
 systemctl start ws-ssh.service
+
+#Enable & Start ws-dropbear service
+systemctl enable ws-dropbear.service
+systemctl start ws-dropbear.service
 
 #Enable & Start ws-ovpn service
 systemctl enable ws-ovpn.service
