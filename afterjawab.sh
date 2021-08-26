@@ -23,9 +23,6 @@ wget https://raw.githubusercontent.com/Apeachsan91/server/main/set-br.sh && chmo
 #install ohp
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 
-#install websocket
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/websocket.sh  && chmod +x websocket.sh && ./websocket.sh
-
 rm -f /root/jawab
 rm -f /root/ssh-vpn.sh
 rm -f /root/sstp.sh
@@ -36,7 +33,6 @@ rm -f /root/ins-vt.sh
 rm -f /root/ipsec.sh
 rm -f /root/set-br.sh
 rm -f /root/ohp.sh
-rm -f /root/websocket.sh
 
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
@@ -70,10 +66,6 @@ echo "   - OpenSSH                 : 22"  | tee -a log-install.txt
 echo "   - Dropbear                : 109, 143"  | tee -a log-install.txt
 echo "   - OpenVPN                 : TCP $ovpn, UDP $ovpn2, SSL 442"  | tee -a log-install.txt
 echo "   - Stunnel4                : 443, 777"  | tee -a log-install.txt
-echo "   - OpenSSH + WebSocket     : 2084"  | tee -a log-install.txt
-echo "   - Dropbear + WebSocket    : 2085"  | tee -a log-install.txt
-echo "   - OpenVPN + WebSocket     : 2086"  | tee -a log-install.txt
-echo "   - Stunnel + WebSocket     : 2088"  | tee -a log-install.txt
 echo "   - OpenVPN + OHP Squid     : 50000"  | tee -a log-install.txt
 echo "   - Squid Proxy             : 3128, 8080 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - Badvpn                  : 7100, 7200, 7300"  | tee -a log-install.txt
