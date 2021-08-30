@@ -230,8 +230,11 @@ cat> /etc/xray/config.json << END
       "port": 6443,
       "protocol": "vless",
       "settings": {
-        "clients": [
+"clients": [
+          {
+            "id": "${uuid}"
 #xtls
+          }
         ],
         "decryption": "none",
         "fallbacks": [
@@ -312,8 +315,11 @@ cat> /etc/v2ray/vless.json << END
       "port": 2083,
       "protocol": "vless",
       "settings": {
-        "clients": [         
+        "clients": [
+          {
+            "id": "${uuid}"
 #tls
+          }
         ],
         "decryption": "none"
       },
