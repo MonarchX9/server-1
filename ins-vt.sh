@@ -212,97 +212,90 @@ cat> /etc/v2ray/none.json << END
 }
 END
 
-cat> /etc/v2ray/vxtls.json << END
+cat> /etc/xray/xray-vless.json << END
 {
   "log": {
     "access": "/var/log/xray/access.log",
     "error": "/var/log/xray/error.log",
-    "loglevel": "warning"
+    "loglevel": "info"
   },
   "inbounds": [
     {
-      "port": 443,
+      "port": 6443,
       "protocol": "vless",
       "settings": {
         "clients": [
-          {
-            "id": "xx",
-            "flow": "xtls-rprx-direct"
-          }
+	{
+            "id": "${uuid}"
+#xtls
+        }
         ],
         "decryption": "none",
         "fallbacks": [
           {
-            "dest": 60000,
-            "alpn": "",
-            "xver": 1
-          },
-          {
-            "dest": 60001,
-            "alpn": "h2",
-            "xver": 1
-          },
-          {
-            "dest": 60002,
-            "path": "/iriszz",
-            "xver": 1
+            "dest": 80
           }
         ]
       },
       "streamSettings": {
         "network": "tcp",
         "security": "xtls",
+        "tcpSettings": {},
+        "kcpSettings": {},
+        "wsSettings": {},
+        "httpSettings": {},
+        "quicSettings": {},
         "xtlsSettings": {
-          "minVersion": "1.2",
           "certificates": [
             {
-              "certificateFile": "/usr/local/etc/xray/self_signed_cert.pem",
-              "keyFile": "/usr/local/etc/xray/self_signed_key.pem"
-            },
-            {
-              "certificateFile": "/ssl/xray.crt",
-              "keyFile": "/ssl/xray.key"
+              "certificateFile": "etc/v2ray/v2ray.crt",
+              "keyFile": "/etc/v2ray/v2ray.key"
             }
+          ],
+          "alpn": [
+            "http/1.1"
           ]
         }
       },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    },
-    {
-      "port": 60002,
-      "listen": "127.0.0.1",
-      "protocol": "vless",
-      "settings": {
-          "clients": [
-              {
-                  "id": "xx"
-              }
-          ],
-          "decryption": "none"
-      },
-      "streamSettings": {
-          "network": "ws",
-          "security": "none",
-          "wsSettings": {
-              "acceptProxyProtocol": true,
-              "path": "xx"
-          }
-      }
-  }
-],
+      "domain": "(cat /etc/v2ray/domain)"
+    }
+  ],
   "outbounds": [
     {
-      "protocol": "freedom"
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
     }
-  ]
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "100.64.0.0/10",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.0.0.0/24",
+          "192.0.2.0/24",
+          "192.168.0.0/16",
+          "198.18.0.0/15",
+          "198.51.100.0/24",
+          "203.0.113.0/24",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
 }
-END
 
 cat> /etc/v2ray/vless.json << END
 {
