@@ -37,14 +37,14 @@ exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#tcpxtls$/a\### '"Client $user $exp"'\
 {"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'","email": "'""$user""'"},' /usr/local/etc/xray/config1.json
 
-vlesslink3="vless://${uuid}@${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=YourISPBug#vless_xtls_${user}"
+vlesslink3="vless://${uuid}@${MYIP}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=YourISPBug#vless_xtls_${user}"
 chmod 644 /etc/xray/xray.key
 systemctl restart xray
 clear
 echo -e ""
 echo -e "===========-XRAY/VLESS-=========="
 echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}"
+echo -e "IP             : ${MYIP}"
 echo -e "Port XTLS      : $xtls"
 echo -e "id             : ${uuid}"
 echo -e "Encryption     : none"
