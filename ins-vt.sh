@@ -231,8 +231,12 @@ cat> /etc/xray/config.json << END
       "protocol": "vless",
       "settings": {
         "clients": [
+        
+        
 #tcpxtls
 ## END Client
+                        "id": "$uuid",
+                        "flow": "xtls-rprx-direct"
         ],
         "decryption": "none",
         "fallbacks": [
