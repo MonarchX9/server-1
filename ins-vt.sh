@@ -537,6 +537,9 @@ cat <<EOF > /etc/trojan/config.json
     }
 }
 EOF
+
+chmod 644 /etc/v2ray/v2ray.key
+
 cat <<EOF> /etc/systemd/system/trojan.service
 [Unit]
 Description=Trojan
