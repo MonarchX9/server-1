@@ -212,7 +212,7 @@ cat> /etc/v2ray/none.json << END
 }
 END
 
-cat> /etc/xray/xray-vless.json << END
+cat> /etc/xray/config.json << END
 {
   "log": {
     "access": "/var/log/xray/access.log",
