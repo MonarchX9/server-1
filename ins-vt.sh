@@ -302,6 +302,7 @@ cat> /etc/xray/config.json << END
     ]
   }
 }
+END
 
 cat> /etc/v2ray/vless.json << END
 {
