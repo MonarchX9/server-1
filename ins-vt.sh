@@ -568,6 +568,7 @@ netfilter-persistent reload
 systemctl daemon-reload
 systemctl enable v2ray@none.service
 systemctl start v2ray@none.service
+systemctl enable xray
 systemctl enable v2ray@vless.service
 systemctl start v2ray@vlessservice
 systemctl enable v2ray@vnone.service
@@ -576,6 +577,7 @@ systemctl restart trojan
 systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
+systemctl restart xray
 cd /usr/bin
 wget -O add-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/add-ws.sh"
 wget -O add-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/add-xray.sh"
