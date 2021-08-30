@@ -39,6 +39,7 @@ sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 sed -i '/#tcpxtls$/a\### '"Client $user $exp"'\
 "id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 vlesslink3="vless://${uuid}@${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=YourISPBug#vless_xtls_${user}"
+chmod 644 /etc/v2ray/v2ray.key
 systemctl restart xray
 clear
 echo -e ""
