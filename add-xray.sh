@@ -33,8 +33,11 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#xtls$/a\### '"Client $user $exp"'\
-{"id": "'""$uuid""'","email": "'""$user""'"'}, /etc/xray/config.json
+
+sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
+
+sed -i '/#tcpxtls$/a\### '"Client $user $exp"'\
+{"id": "'""$uuid""'","email": "'""$user""'"},' /etc/xray/config.json
 vlesslink3="vless://${uuid}@${domain}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=YourISPBug#vless_xtls_${user}"
 systemctl restart xray
 clear
