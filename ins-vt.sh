@@ -20,9 +20,9 @@ touch /etc/trojan/akun.conf
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/go.sh && chmod +x go.sh && ./go.sh
 
 #install xray
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/xrayinstall.sh && chmod +x xrayinstall.sh && screen -S xray ./xrayinstall.sh
 
-rm -f /root/xray.sh
+rm -f /root/xrayinstall.sh
 rm -f /root/go.sh
 bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 mkdir /root/.acme.sh
