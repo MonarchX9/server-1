@@ -230,11 +230,9 @@ cat> /etc/xray/config.json << END
       "port": 6443,
       "protocol": "vless",
       "settings": {
-"clients": [
-          {
-          "id": "${uuid}"
+        "clients": [
 #tcpxtls
-          }
+## END Client
         ],
         "decryption": "none",
         "fallbacks": [
