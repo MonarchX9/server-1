@@ -232,7 +232,8 @@ cat> /etc/xray/config.json << END
       "settings": {
 "clients": [
           {
-#xtls
+          "id": "${uuid}"
+#tcpxtls
           }
         ],
         "decryption": "none",
