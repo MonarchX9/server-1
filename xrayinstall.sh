@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 #input uuid & domain
 uuid=$(cat /proc/sys/kernel/random/uuid)
-domain=$(cat /etc/v2ray/domain)
 
 #configure timezone to sri lanka standards
 
@@ -88,7 +87,7 @@ cat << EOF > /usr/local/etc/xray/config1.json
 {
     "inbounds": [
 	{
-            "port": 6443,
+            "port": 443,
             "protocol": "vless",
 			"tag":"XTLS",
             "settings": {
@@ -97,7 +96,7 @@ cat << EOF > /usr/local/etc/xray/config1.json
                         "id": "$uuid",
                         "flow": "xtls-rprx-direct",
                         "level": 0
-                        #tcpxtls
+#tcpxtls
                     }
                 ],
                 "decryption": "none",
@@ -137,13 +136,14 @@ cat << EOF > /usr/local/etc/xray/config2.json
 }
 EOF
 
-#accuring a ssl certificate
+#accuring a ssl certificate (self-sigend openssl)
 
-apt-get update && apt-get install curl -y && apt-get install cron -y && apt-get install socat -y
-curl https://get.acme.sh | sh
-source ~/.bashrc
-bash ~/.acme.sh/acme.sh --issue -d $domain --alpn -k ec-256
-mkdir /etc/xray && sudo ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
+    -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" \
+    -keyout xray.key  -out xray.crt
+mkdir /etc/xray
+cp xray.key /etc/xray/xray.key
+cp xray.crt /etc/xray/xray.crt
 chmod 644 /etc/xray/xray.key
 
 #starting xray core on sytem startup
@@ -165,3 +165,4 @@ mkdir ~/across
 git clone https://github.com/teddysun/across ~/across
 chmod 777 ~/across
 bash ~/across/bbr.sh
+
