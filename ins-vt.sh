@@ -303,7 +303,6 @@ cat> /etc/xray/config.json << END
   }
 }
 END
-
 cat> /etc/v2ray/vless.json << END
 {
   "log": {
@@ -316,11 +315,8 @@ cat> /etc/v2ray/vless.json << END
       "port": 2083,
       "protocol": "vless",
       "settings": {
-        "clients": [
-          {
-            "id": "${uuid}"
+        "clients": [         
 #tls
-          }
         ],
         "decryption": "none"
       },
