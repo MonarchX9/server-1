@@ -13,9 +13,6 @@ wget https://raw.githubusercontent.com/Apeachsan91/server/main/sodosok.sh && chm
 #installwg
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 
-#install xray
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
-
 #install v2ray
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
 
@@ -35,7 +32,6 @@ rm -f /root/sstp.sh
 rm -f /root/wg.sh
 rm -f /root/ss.sh
 rm -f /root/ssr.sh
-rm -f /root/xray.sh
 rm -f /root/ins-vt.sh
 rm -f /root/ipsec.sh
 rm -f /root/set-br.sh
