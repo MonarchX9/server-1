@@ -231,10 +231,7 @@ cat> /etc/xray/config.json << END
       "protocol": "vless",
       "settings": {
         "clients": [
-	{
-            "id": "${uuid}"
 #xtls
-        }
         ],
         "decryption": "none",
         "fallbacks": [
