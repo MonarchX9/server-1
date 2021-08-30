@@ -35,7 +35,7 @@ read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xray-vless.json
-vlesslink3="vless://${uuid}@${domain}:$xtls?path=/v2ray&?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=MasukBugDisini${user}"
+vlesslink3="vless://${uuid}@${domain}:$xtls?path=/v2ray&?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=MasukBugDisini&${user}"
 systemctl restart xray
 
 clear
