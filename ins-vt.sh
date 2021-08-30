@@ -232,7 +232,6 @@ cat> /etc/xray/config.json << END
       "settings": {
 "clients": [
           {
-            "id": "${uuid}"
 #xtls
           }
         ],
