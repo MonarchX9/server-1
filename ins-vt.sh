@@ -578,6 +578,7 @@ systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
 wget -O add-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/add-ws.sh"
+wget -O add-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/add-xray.sh"
 wget -O add-vless "https://raw.githubusercontent.com/Apeachsan91/server/main/add-vless.sh"
 wget -O add-tr "https://raw.githubusercontent.com/Apeachsan91/server/main/add-tr.sh"
 wget -O del-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/del-ws.sh"
@@ -591,6 +592,7 @@ wget -O renew-vless "https://raw.githubusercontent.com/Apeachsan91/server/main/r
 wget -O renew-tr "https://raw.githubusercontent.com/Apeachsan91/server/main/renew-tr.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Apeachsan91/server/main/cert.sh"
 chmod +x add-ws
+chmod +x add-xray
 chmod +x add-vless
 chmod +x add-tr
 chmod +x del-ws
