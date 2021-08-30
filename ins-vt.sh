@@ -217,94 +217,6 @@ cat> /etc/v2ray/none.json << END
   }
 }
 END
-
-cat> /etc/xray/config.json << END
-{
-  "log": {
-    "access": "/var/log/xray/access.log",
-    "error": "/var/log/xray/error.log",
-    "loglevel": "info"
-  },
-  "inbounds": [
-    {
-      "port": 6443,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-        
-        
-#tcpxtls
-## END Client
-                        "id": "$uuid",
-                        "flow": "xtls-rprx-direct"
-        ],
-        "decryption": "none",
-        "fallbacks": [
-          {
-            "dest": 80
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "xtls",
-        "tcpSettings": {},
-        "kcpSettings": {},
-        "wsSettings": {},
-        "httpSettings": {},
-        "quicSettings": {},
-        "xtlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "etc/v2ray/v2ray.crt",
-              "keyFile": "/etc/v2ray/v2ray.key"
-            }
-          ],
-          "alpn": [
-            "http/1.1"
-          ]
-        }
-      },
-      "domain": "(cat /etc/v2ray/domain)"
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      }
-    ]
-  }
-}
-END
 cat> /etc/v2ray/vless.json << END
 {
   "log": {
@@ -539,8 +451,6 @@ cat <<EOF > /etc/trojan/config.json
 }
 EOF
 
-chmod 644 /etc/v2ray/v2ray.key
-
 cat <<EOF> /etc/systemd/system/trojan.service
 [Unit]
 Description=Trojan
@@ -579,7 +489,6 @@ netfilter-persistent reload
 systemctl daemon-reload
 systemctl enable v2ray@none.service
 systemctl start v2ray@none.service
-systemctl enable xray
 systemctl enable v2ray@vless.service
 systemctl start v2ray@vlessservice
 systemctl enable v2ray@vnone.service
@@ -588,7 +497,6 @@ systemctl restart trojan
 systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
-systemctl restart xray
 cd /usr/bin
 wget -O add-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/add-ws.sh"
 wget -O add-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/add-xray.sh"
