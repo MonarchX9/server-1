@@ -14,6 +14,11 @@ exit 0
 fi
 clear
 read -p "Username : " Login
+egrep "^$Login" /etc/passwd >/dev/null
+if [ $? -eq 0 ]; then
+echo "Username sudah ada didalam sistem. Sila gunakan username yang lain"
+exit 0
+else
 read -p "Password : " Pass
 read -p "Expired (hari): " masaaktif
 sleep 1
@@ -35,7 +40,9 @@ ssl="$(cat ~/log-install.txt | grep -w "Stunnel4" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "Squid" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
-echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
+#echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
+egrep "^$Login" /etc/passwd >/dev/null
+echo -e "$Pass\n$Pass" | passwd $Login
 echo -e ""
 echo -e "==============================="
 echo -e "      MAKLUMAT PORT ANDA       "
