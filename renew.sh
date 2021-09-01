@@ -12,6 +12,7 @@ echo -e "${red}Permission Denied!${NC}";
 echo "Only For Premium Users"
 exit 0
 fi
+cd
 clear
 read -p "         Username       :  " User
 egrep "^$User" /etc/passwd >/dev/null
