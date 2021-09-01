@@ -29,7 +29,7 @@ sleep 0.5
 echo Permission Accepted
 clear
 sleep 0.5
-echo Membuat Akun: $Login
+echo Membuat Akaun: $Login
 sleep 0.5
 echo Setting Password: $Pass
 sleep 0.5
