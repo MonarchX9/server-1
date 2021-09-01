@@ -239,6 +239,7 @@ wget -O add-cff "https://raw.githubusercontent.com/Apeachsan91/server/main/add-c
 wget -O add-cfh "https://raw.githubusercontent.com/Apeachsan91/server/main/add-cfh.sh"
 wget -O add-dom "https://raw.githubusercontent.com/Apeachsan91/server/main/add-dom.sh"
 wget -O usernew "https://raw.githubusercontent.com/Apeachsan91/server/main/usernew.sh"
+wget -O user-passwd "https://raw.githubusercontent.com/Apeachsan91/server/main/user-passwd.sh"
 wget -O trial "https://raw.githubusercontent.com/Apeachsan91/server/main/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/Apeachsan91/server/main/hapus.sh"
 wget -O member "https://raw.githubusercontent.com/Apeachsan91/server/main/member.sh"
@@ -264,6 +265,7 @@ wget -O port-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/port-
 wget -O port-vless "https://raw.githubusercontent.com/Apeachsan91/server/main/port-vless.sh"
 wget -O wbmn "https://raw.githubusercontent.com/Apeachsan91/server/main/webmin.sh"
 wget -O xp "https://raw.githubusercontent.com/Apeachsan91/server/main/xp.sh"
+wget -O update "https://raw.githubusercontent.com/Apeachsan91/server/main/update.sh"
 #wget -O kernel-updt "https://raw.githubusercontent.com/Apeachsan91/server/main/kernel-update.sh"
 chmod +x add-host
 chmod +x menu
@@ -271,6 +273,7 @@ chmod +x add-cff
 chmod +x add-cfh
 chmod +x add-dom
 chmod +x usernew
+chmod +x user-passwd
 chmod +x trial
 chmod +x hapus
 chmod +x member
@@ -297,6 +300,7 @@ chmod +x port-ws
 chmod +x port-vless
 chmod +x wbmn
 chmod +x xp
+chmod +x update
 #chmod +x kernel-updt
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp && delete" >> /etc/crontab
