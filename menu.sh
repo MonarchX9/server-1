@@ -95,14 +95,14 @@ echo -e " [${color1}45{color3}]    : Restore Backup"
 echo -e ""
 echo -e "============================[ ${color2}SISTEM${color3} ]=========================="
 echo -e " [${color1}46{color3}]    : Menukar port servis"
-echo -e " [${color1}46${color3}]    : Webmin Menu"
-echo -e " [${color1}47${color3}]    : Limit Bandwith Speed Server"
-echo -e " [${color1}48${color3}]    : Jumlah penggunaan Ram VPS"
-echo -e " [${color1}49${color3}]    : Reboot VPS"
-echo -e " [${color1}50${color3}]    : Speedtest VPS"
-echo -e " [${color1}51${color3}]    : Displaying System Information"
-echo -e " [${color1}52${color3}]    : Info Script Auto Install"
-echo -e " [${color1}53${color3}]    : Exit From VPS"
+echo -e " [${color1}47${color3}]    : Webmin Menu"
+echo -e " [${color1}48${color3}]    : Limit Bandwith Speed Server"
+echo -e " [${color1}49${color3}]    : Jumlah penggunaan Ram VPS"
+echo -e " [${color1}50${color3}]    : Reboot VPS"
+echo -e " [${color1}51${color3}]    : Speedtest VPS"
+echo -e " [${color1}52${color3}]    : Displaying System Information"
+echo -e " [${color1}53${color3}]    : Info Script Auto Install"
+echo -e " [${color1}54${color3}]    : Exit From VPS"
 echo -e ""
 echo -e "================================================================"
 echo -e ""
@@ -139,133 +139,136 @@ ceklim
 10)
 restart
 ;;
-11)
-add-wg
+10)
+restart
 ;;
 12)
-del-wg
+add-wg
 ;;
 13)
-renew-wg
+del-wg
 ;;
 14)
-cek-wg
+renew-wg
 ;;
 15)
-wg show
+cek-wg
 ;;
 16)
-add-ssr
+wg show
 ;;
 17)
-del-ssr
+add-ssr
 ;;
 18)
-renew-ssr
+del-ssr
 ;;
 19)
-ssr
+renew-ssr
 ;;
 20)
-add-ss
+ssr
 ;;
 21)
-del-ss
+add-ss
 ;;
 22)
-renew-ss
+del-ss
 ;;
 23)
-cek-ss
+renew-ss
 ;;
 24)
-add-ws
+cek-ss
 ;;
 25)
-del-ws
+add-ws
 ;;
 26)
-renew-ws
+del-ws
 ;;
 27)
-cek-ws
+renew-ws
 ;;
 28)
-certv2ray
+cek-ws
 ;;
 29)
-add-vless
+certv2ray
 ;;
 30)
-del-vless
+add-vless
 ;;
 31)
-renew-vless
+del-vless
 ;;
 32)
-cek-vless
+renew-vless
 ;;
 33)
-add-tr
+cek-vless
 ;;
 34)
-del-tr
+add-tr
 ;;
 35)
-renew-tr
+del-tr
 ;;
 36)
-cek-tr
+renew-tr
 ;;
 37)
-add-dom
+cek-tr
 ;;
 38)
-add-cff
+add-dom
 ;;
 39)
-add-cfh
+add-cff
 ;;
 40)
-backupemail
+add-cfh
 ;;
 41)
-backupnginx
+backupemail
 ;;
 42)
-autobackupemail
+backupnginx
 ;;
 43)
-autobackupnginx
+autobackupemail
 ;;
 44)
-restore
+autobackupnginx
 ;;
 45)
-change-port
+restore
 ;;
 46)
-wbmn
+change-port
 ;;
 47)
-limit-speed
+wbmn
 ;;
 48)
-ram
+limit-speed
 ;;
 49)
-reboot
+ram
 ;;
 50)
-speedtest
+reboot
 ;;
 51)
-info
+speedtest
 ;;
 52)
-about
+info
 ;;
 53)
+about
+;;
+54)
 exit
 cd
 clear
