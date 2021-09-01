@@ -44,6 +44,8 @@ ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | 
 #echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 egrep "^$Login" /etc/passwd >/dev/null
 echo -e "$Pass\n$Pass" | passwd $Login
+cd
+clear
 echo -e ""
 echo -e "==============================="
 echo -e "      MAKLUMAT PORT ANDA       "
