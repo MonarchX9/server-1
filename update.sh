@@ -19,6 +19,9 @@ echo -e "${red}Permission Denied!${NC}";
 rm -f setup.sh
 exit 0
 fi
+cd
+clear
+echo ""
 echo "Membuat semakan sekiranya terdapat sebarang update.."
 sleep 3
 echo "Tiada sebarang update untuk waktu ini.."
