@@ -102,7 +102,8 @@ echo -e " [${color1}50${color3}]    : Reboot VPS"
 echo -e " [${color1}51${color3}]    : Speedtest VPS"
 echo -e " [${color1}52${color3}]    : Displaying System Information"
 echo -e " [${color1}53${color3}]    : Info Script Auto Install"
-echo -e " [${color1}54${color3}]    : Exit From VPS"
+echo -e " [${color1}54${color3}]    : Update Script"
+echo -e " [${color1}55${color3}]    : Exit From VPS"
 echo -e ""
 echo -e "================================================================"
 echo -e ""
@@ -116,30 +117,30 @@ usernew
 trial
 ;;
 3)
-renew
+user-passwd
 ;;
 4)
-deluser
+member
 ;;
 5)
 cek
 ;;
 6)
-member
+renew
 ;;
 7)
-delete
+deluser
 ;;
 8)
-autokill
+delete
 ;;
 9)
+autokill
+;;
+10)
 ceklim
 ;;
-10)
-restart
-;;
-10)
+11)
 restart
 ;;
 12)
@@ -269,6 +270,9 @@ info
 about
 ;;
 54)
+update
+;;
+55)
 exit
 cd
 clear
