@@ -17,7 +17,8 @@ read -p "Username : " Login
 egrep "^$Login" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
 echo "Username sudah ada didalam sistem. Sila gunakan username yang lain"
-exit 0
+sleep 1
+usernew
 else
 read -p "Password : " Pass
 read -p "Expired (hari): " masaaktif
