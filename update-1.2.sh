@@ -16,9 +16,6 @@ if [ $MYIP = $IZIN ]; then
 echo -e "${green}Permission Accepted...${NC}"
 else
 echo -e "${red}Permission Denied!${NC}";
-echo "Please Contact Admin"
-echo "Telegram t.me/horasss"
-echo "WhatsApp wa.me/6282381643124"
 rm -f setup.sh
 exit 0
 fi
