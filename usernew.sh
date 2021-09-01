@@ -70,3 +70,4 @@ echo -e "==============================="
 echo -e " TERIMA KASIH KERANA MELANGGAN "
 echo -e "==============================="
 echo -e ""
+fi
