@@ -551,7 +551,7 @@ User=$INSTALL_USER
 ${temp_CapabilityBoundingSet}
 ${temp_AmbientCapabilities}
 ${temp_NoNewPrivileges}
-ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/config.json
+ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/xtls.json
 Restart=on-failure
 RestartPreventExitStatus=23
 LimitNPROC=10000
