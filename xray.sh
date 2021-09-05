@@ -503,7 +503,7 @@ install_xray() {
   # shellcheck disable=SC2153
   if [[ -z "$JSONS_PATH" ]] && [[ ! -d "$JSON_PATH" ]]; then
     install -d "$JSON_PATH"
-    echo "{}" > "${JSON_PATH}/config.json"
+    echo "{}" > "${JSON_PATH}/xtls.json"
     CONFIG_NEW='1'
   fi
 
@@ -861,7 +861,7 @@ main() {
     echo "installed: ${DAT_PATH}/geosite.dat"
   fi
   if [[ "$CONFIG_NEW" -eq '1' ]]; then
-    echo "installed: ${JSON_PATH}/config.json"
+    echo "installed: ${JSON_PATH}/xtls.json"
   fi
   if [[ "$CONFDIR" -eq '1' ]]; then
     echo "installed: ${JSON_PATH}/00_log.json"
