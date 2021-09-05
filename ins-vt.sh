@@ -22,7 +22,7 @@ wget https://raw.githubusercontent.com/Apeachsan91/server/main/go.sh && chmod +x
 #install xray
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
 
-rm -f /root/xrayinstall.sh
+rm -f /root/xray.sh
 rm -f /root/go.sh
 bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 mkdir /root/.acme.sh
@@ -32,7 +32,7 @@ chmod +x /root/.acme.sh/acme.sh
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
 uuid=$(cat /proc/sys/kernel/random/uuid)
-cat> /etc/xray/config.json << END
+cat> /usr/local/etc/xray/xtls.json << END
 {
   "log": {
     "access": "/var/log/xray/access.log",
