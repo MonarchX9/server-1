@@ -50,8 +50,13 @@ cat> /etc/xray/config.json << END
             "alterId": 2
 #tcpxtls
           }
-        ]
+        ],
         "decryption": "none",
+				  "fallbacks": [
+           {
+            "dest": "www.baidu.com:80"
+           }
+        ]
       },
       "streamSettings": {
         "network": "tcp",
