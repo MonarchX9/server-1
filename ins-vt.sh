@@ -32,6 +32,7 @@ chmod +x /root/.acme.sh/acme.sh
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
 uuid=$(cat /proc/sys/kernel/random/uuid)
+rm -rf /usr/local/etc/xray/config.json
 cat> /usr/local/etc/xray/xtls.json << END
 {
   "log": {
