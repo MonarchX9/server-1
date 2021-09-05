@@ -18,7 +18,7 @@ DAT_PATH=${DAT_PATH:-/usr/local/share/xray}
 
 # You can set this variable whatever you want in shell session right before running this script by issuing:
 # export JSON_PATH='/usr/local/etc/xray'
-JSON_PATH=${JSON_PATH:-/etc/xray}
+JSON_PATH=${JSON_PATH:-/usr/local/etc/xray}
 
 # Set this variable only if you are starting xray with multiple configuration files:
 # export JSONS_PATH='/usr/local/etc/xray'
@@ -551,7 +551,7 @@ User=$INSTALL_USER
 ${temp_CapabilityBoundingSet}
 ${temp_AmbientCapabilities}
 ${temp_NoNewPrivileges}
-ExecStart=/usr/local/bin/xray run -config /etc/xray/config.json
+ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/config.json
 Restart=on-failure
 RestartPreventExitStatus=23
 LimitNPROC=10000
@@ -571,7 +571,7 @@ User=$INSTALL_USER
 ${temp_CapabilityBoundingSet}
 ${temp_AmbientCapabilities}
 ${temp_NoNewPrivileges}
-ExecStart=/usr/local/bin/xray run -config /etc/xray/%i.json
+ExecStart=/usr/local/bin/xray run -config /usr/local/etc/xray/%i.json
 Restart=on-failure
 RestartPreventExitStatus=23
 LimitNPROC=10000
