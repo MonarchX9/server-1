@@ -36,7 +36,7 @@ exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#tcpxtls$/a\### '"Client $user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'","email": "'""$user""'"' /etc/xray/config.json
 vlesslink3="vless://${uuid}@${MYIP}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=YourISPBug#vless_xtls_${user}"
-chmod 644 /etc/xray/xray.key
+chmod 644 /etc/v2ray/v2ray.key
 systemctl restart xray
 clear
 echo -e ""
