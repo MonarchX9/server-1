@@ -20,7 +20,7 @@ touch /etc/trojan/akun.conf
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/go.sh && chmod +x go.sh && ./go.sh
 
 #install xray
-#wget https://raw.githubusercontent.com/Apeachsan91/server/main/xrayinstall.sh && chmod +x xrayinstall.sh && screen -S xray ./xrayinstall.sh
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/xrayinstall.sh && chmod +x xrayinstall.sh && screen -S xray ./xrayinstall.sh
 
 rm -f /root/xrayinstall.sh
 rm -f /root/go.sh
@@ -32,6 +32,103 @@ chmod +x /root/.acme.sh/acme.sh
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
 uuid=$(cat /proc/sys/kernel/random/uuid)
+cat> /etc/xray/config.json << END
+{
+  "log": {
+    "access": "/var/log/xray/access.log",
+    "error": "/var/log/xray/error.log",
+    "loglevel": "info"
+  },
+  "inbounds": [
+    {
+      "port": 6443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "${uuid}",
+            "alterId": 2
+#tcpxtls
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "xtls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "etc/v2ray/v2ray.crt",
+              "keyFile": "/etc/v2ray/v2ray.key"
+            }
+          ]
+        },
+        "wsSettings": {
+          "path": "/v2ray",
+          "headers": {
+            "Host": ""
+          }
+         },
+        "quicSettings": {},
+        "sockopt": {
+          "mark": 0,
+          "tcpFastOpen": true
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      },
+      "domain": "$domain"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "100.64.0.0/10",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.0.0.0/24",
+          "192.0.2.0/24",
+          "192.168.0.0/16",
+          "198.18.0.0/15",
+          "198.51.100.0/24",
+          "203.0.113.0/24",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "outboundTag": "blocked"
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "protocol": [
+          "bittorrent"
+        ]
+      }
+    ]
+  }
+}
+END
 cat> /etc/v2ray/config.json << END
 {
   "log": {
@@ -478,7 +575,6 @@ iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2083 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8880 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 6443 -j ACCEPT
-
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
@@ -497,13 +593,18 @@ systemctl enable v2ray@vless.service
 systemctl start v2ray@vlessservice
 systemctl enable v2ray@vnone.service
 systemctl start v2ray@vnone.service
+systemctl enable xray@service
+systemctl start xray@service
 systemctl restart trojan
 systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
+systemctl enable xray
+systemctl restart xray
+
 cd /usr/bin
 wget -O add-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/add-ws.sh"
-#wget -O add-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/add-xray.sh"
+wget -O add-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/add-xray.sh"
 wget -O add-vless "https://raw.githubusercontent.com/Apeachsan91/server/main/add-vless.sh"
 wget -O add-tr "https://raw.githubusercontent.com/Apeachsan91/server/main/add-tr.sh"
 wget -O del-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/del-ws.sh"
@@ -517,7 +618,7 @@ wget -O renew-vless "https://raw.githubusercontent.com/Apeachsan91/server/main/r
 wget -O renew-tr "https://raw.githubusercontent.com/Apeachsan91/server/main/renew-tr.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Apeachsan91/server/main/cert.sh"
 chmod +x add-ws
-#chmod +x add-xray
+chmod +x add-xray
 chmod +x add-vless
 chmod +x add-tr
 chmod +x del-ws
@@ -533,3 +634,4 @@ chmod +x certv2ray
 cd
 rm -f ins-vt.sh
 cp /root/domain /etc/v2ray
+cp /root/domain /etc/xray
