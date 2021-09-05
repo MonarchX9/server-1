@@ -31,9 +31,9 @@ chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
+
 uuid=$(cat /proc/sys/kernel/random/uuid)
 rm -rf /usr/local/etc/xray/config.json
-
 cp /etc/v2ray/v2ray.crt /usr/local/etc/xray/v2ray.crt
 cp /etc/v2ray/v2ray.key /usr/local/etc/xray/v2ray.key
 chmod 644 /usr/local/etc/xray/v2ray.crt
