@@ -22,7 +22,7 @@ fi
 xtls="$(cat ~/log-install.txt | grep -w "Vless TCP XTLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		read -rp "User: " -e user
-		CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
+		CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/xtls.json | wc -l)
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			echo ""
@@ -34,7 +34,7 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#tcpxtls$/a\### '"Client $user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'","email": "'""$user""'"' /etc/xray/config.json
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'","email": "'""$user""'"' /usr/local/etc/xray/xtls.json
 vlesslink3="vless://${uuid}@${MYIP}:$xtls?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=YourISPBug#vless_xtls_${user}"
 chmod 644 /etc/v2ray/v2ray.key
 systemctl restart xray
