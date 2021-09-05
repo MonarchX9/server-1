@@ -59,9 +59,9 @@ cat> /usr/local/etc/xray/xtls.json << END
         ],
         "decryption": "none",
 				  "fallbacks": [
-           {
-            "dest": "www.baidu.com:80"
-           }
+          {
+            "dest": 80
+          }
         ]
       },
       "streamSettings": {
