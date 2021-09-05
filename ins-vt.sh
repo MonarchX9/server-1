@@ -51,11 +51,12 @@ cat> /etc/xray/config.json << END
 #tcpxtls
           }
         ]
+        "decryption": "none",
       },
       "streamSettings": {
         "network": "tcp",
         "security": "xtls",
-        "tlsSettings": {
+        "xtlsSettings": {
           "certificates": [
             {
               "certificateFile": "etc/v2ray/v2ray.crt",
