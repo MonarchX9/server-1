@@ -20,7 +20,7 @@ touch /etc/trojan/akun.conf
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/go.sh && chmod +x go.sh && ./go.sh
 
 #install xray
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/xrayinstall.sh && chmod +x xrayinstall.sh && screen -S xray ./xrayinstall.sh
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
 
 rm -f /root/xrayinstall.sh
 rm -f /root/go.sh
