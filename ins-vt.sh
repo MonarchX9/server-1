@@ -33,6 +33,11 @@ chmod +x /root/.acme.sh/acme.sh
 service squid start
 uuid=$(cat /proc/sys/kernel/random/uuid)
 rm -rf /usr/local/etc/xray/config.json
+
+cp /etc/v2ray/v2ray.crt /usr/local/etc/xray/v2ray.crt
+cp /etc/v2ray/v2ray.key /usr/local/etc/xray/v2ray.key
+chmod 644 /usr/local/etc/xray/v2ray.crt
+chmod 644 /usr/local/etc/xray/v2ray.key
 cat> /usr/local/etc/xray/xtls.json << END
 {
   "log": {
@@ -65,8 +70,8 @@ cat> /usr/local/etc/xray/xtls.json << END
         "xtlsSettings": {
           "certificates": [
             {
-              "certificateFile": "etc/v2ray/v2ray.crt",
-              "keyFile": "/etc/v2ray/v2ray.key"
+              "certificateFile": "/usr/local/etc/xray/v2ray.crt",
+              "keyFile": "/usr/local/etc/xray/v2ray.key"
             }
           ]
         },
