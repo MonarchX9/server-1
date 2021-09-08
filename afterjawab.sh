@@ -86,6 +86,7 @@ echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
 echo "   - V2RAY Vmess None TLS    : 80"  | tee -a log-install.txt
 echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
 echo "   - V2RAY Vless None TLS    : 8880"  | tee -a log-install.txt
+echo "   - Xray Vless TCP XTLS     : 6443"  | tee -a log-install.txt
 echo "   - Trojan                  : 2087"  | tee -a log-install.txt
 #echo "   - L2TP/IPSEC VPN          : 1701"  | tee -a log-install.txt
 #echo "   - PPTP VPN                : 1732"  | tee -a log-install.txt
