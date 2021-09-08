@@ -24,6 +24,7 @@ wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod 
 
 rm -f /root/xray.sh
 rm -f /root/go.sh
+
 bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 mkdir /root/.acme.sh
 curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
@@ -31,116 +32,7 @@ chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
-
 uuid=$(cat /proc/sys/kernel/random/uuid)
-rm -rf /usr/local/etc/xray/config.json
-cp /etc/v2ray/v2ray.crt /usr/local/etc/xray/v2ray.crt
-cp /etc/v2ray/v2ray.key /usr/local/etc/xray/v2ray.key
-chmod 644 /usr/local/etc/xray/v2ray.crt
-chmod 644 /usr/local/etc/xray/v2ray.key
-cat> /usr/local/etc/xray/xtls.json << END
-{
-  "log": {
-    "access": "/var/log/xray/access.log",
-    "error": "/var/log/xray/error.log",
-    "loglevel": "info"
-  },
-  "inbounds": [
-    {
-      "port": 6443,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "${uuid}",
-            "alterId": 2
-#tcpxtls
-          }
-        ],
-        "decryption": "none",
-				  "fallbacks": [
-          {
-            "dest": 80
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "xtls",
-        "xtlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/usr/local/etc/xray/v2ray.crt",
-              "keyFile": "/usr/local/etc/xray/v2ray.key"
-            }
-          ]
-        },
-        "wsSettings": {
-          "path": "/v2ray",
-          "headers": {
-            "Host": ""
-          }
-         },
-        "quicSettings": {},
-        "sockopt": {
-          "mark": 0,
-          "tcpFastOpen": true
-        }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      },
-      "domain": "$domain"
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
-  }
-}
-END
 cat> /etc/v2ray/config.json << END
 {
   "log": {
@@ -611,8 +503,6 @@ systemctl restart trojan
 systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
-systemctl enable xray
-systemctl restart xray
 
 cd /usr/bin
 wget -O add-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/add-ws.sh"
@@ -646,4 +536,3 @@ chmod +x certv2ray
 cd
 rm -f ins-vt.sh
 cp /root/domain /etc/v2ray
-cp /root/domain /etc/xray
