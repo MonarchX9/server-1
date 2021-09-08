@@ -16,7 +16,7 @@ clear
 source /var/lib/premium-script/ipvps.conf
 
 	clear
-  echo -e ""
+  	echo -e ""
 	echo -e "Add Xray User"
 	echo -e "-------------"
 	read -p "Username : " user
