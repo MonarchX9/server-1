@@ -29,9 +29,6 @@ touch /kaizen/xray/xray-clients.txt
 sed -i "s/\tinclude \/etc\/nginx\/sites-enabled\/\*;/\t# include \/etc\/nginx\/sites-enabled\/\*;asd/g" /etc/nginx/nginx.conf
 mkdir /etc/systemd/system/nginx.service.d
 printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" | tee /etc/systemd/system/nginx.service.d/override.conf
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Apeachsan91/server/main/vps.conf"
-/etc/init.d/nginx restart
-chown -R www-data:www-data /home/vps/public_html
 systemctl daemon-reload
 systemctl restart nginx
 systemctl restart xray
