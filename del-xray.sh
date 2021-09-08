@@ -46,8 +46,7 @@ mv -f /usr/local/etc/xray/config_tmp.json /usr/local/etc/xray/config.json
 sed -i "/\b$user\b/d" /kaizen/xray/xray-clients.txt
 service xray restart
 clear
-echo " XRAY Account Deleted Successfully"
-echo " =========================="
-echo " Client Name : $user"
-echo " Expired On  : $exp"
-echo " =========================="
+echo " ================================"
+echo " Akaun Xray Vless berjaya dipadam"
+echo " ================================"
+echo -e ""
