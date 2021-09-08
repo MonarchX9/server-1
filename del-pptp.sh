@@ -43,8 +43,8 @@ sed -i "/^### $VPN_USER $exp/d" /var/lib/premium-script/data-user-pptp
 # Update file attributes
 chmod 600 /etc/ppp/chap-secrets* /etc/ipsec.d/passwd*
 clear
-echo " PPTP Account Has Been Successfully Deleted"
+echo -e ""
 echo " =========================="
-echo " Client Name : $VPN_USER"
-echo " Expired On  : $exp"
+echo " Akaun PPTP berjaya dipadam"
 echo " =========================="
+echo -e ""
