@@ -12,6 +12,7 @@ echo -e "${red}Permission Denied!${NC}";
 echo "Only For Premium Users"
 exit 0
 fi
+expired=$(date -d "${exp}" +"%d %b %Y")
 clear
 	echo -e ""
 	echo -e "==============================="
