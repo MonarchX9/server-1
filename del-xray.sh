@@ -25,7 +25,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "" "/kaizen/xray/xray-clients.txt")
 	echo " Select the existing client you want to remove"
 	echo " Press CTRL+C to return"
 	echo " ==============================="
-	echo "     No  Expired   User"
+	echo "     No  User   Expired"
 	grep -E "^" "/kaizen/xray/xray-clients.txt" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
