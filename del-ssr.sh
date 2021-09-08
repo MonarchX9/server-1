@@ -49,8 +49,8 @@ cd
 service cron restart
 /etc/init.d/ssrmu restart
 clear
-echo " Shadowsocks-R Account Deleted Successfully"
-echo " =========================="
-echo " Client Name : $user"
-echo " Expired On  : $exp"
-echo " =========================="
+echo -e ""
+echo " ================================="
+echo " Akaun ShadowsockR berjaya dipadam"
+echo " ================================="
+echo -e ""
