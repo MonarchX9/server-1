@@ -13,6 +13,7 @@ echo "Only For Premium Users"
 exit 0
 fi
 clear
+expired=$(date -d "${exp}" +"%d %b %Y")
 NUMBER_OF_CLIENTS=$(grep -c -E "" "/kaizen/xray/xray-clients.txt")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		echo ""
