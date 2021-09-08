@@ -45,7 +45,6 @@ cat /usr/local/etc/xray/config.json | jq 'del(.inbounds[1].settings.clients[] | 
 mv -f /usr/local/etc/xray/config_tmp.json /usr/local/etc/xray/config.json
 sed -i "/\b$user\b/d" /kaizen/xray/xray-clients.txt
 service xray restart
-
 clear
 echo " XRAY Account Deleted Successfully"
 echo " =========================="
