@@ -36,9 +36,9 @@ NUMBER_OF_CLIENTS=$(grep -c -E "" "/kaizen/xray/xray-clients.txt")
 	done
 user=$(grep -E "^" "/kaizen/xray/xray-clients.txt" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^" "/kaizen/xray/xray-clients.txt" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
-	uuid=$(cat /iriszz/xray/xray-clients.txt | grep -w "$user" | awk '{print $2}')
+	uuid=$(cat /kaizen/xray/xray-clients.txt | grep -w "$user" | awk '{print $2}')
 	domain=$(cat /usr/local/etc/xray/domain)
-	exp=$(cat /iriszz/xray/xray-clients.txt | grep -w "$user" | awk '{print $3}')
+	exp=$(cat /kaizen/xray/xray-clients.txt | grep -w "$user" | awk '{print $3}')
 	exp_date=$(date -d"${exp}" "+%d %b %Y")
 	echo -e "Expired : $exp_date"
 	echo -e "VLESS + TLS / XTLS"
