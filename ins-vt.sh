@@ -512,12 +512,17 @@ wget -O add-tr "https://raw.githubusercontent.com/Apeachsan91/server/main/add-tr
 wget -O del-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/del-ws.sh"
 wget -O del-vless "https://raw.githubusercontent.com/Apeachsan91/server/main/del-vless.sh"
 wget -O del-tr "https://raw.githubusercontent.com/Apeachsan91/server/main/del-tr.sh"
+wget -O del-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/del-xray.sh"
 wget -O cek-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/cek-ws.sh"
 wget -O cek-vless "https://raw.githubusercontent.com/Apeachsan91/server/main/cek-vless.sh"
 wget -O cek-tr "https://raw.githubusercontent.com/Apeachsan91/server/main/cek-tr.sh"
+wget -O cek-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/cek-xray.sh"
 wget -O renew-ws "https://raw.githubusercontent.com/Apeachsan91/server/main/renew-ws.sh"
 wget -O renew-vless "https://raw.githubusercontent.com/Apeachsan91/server/main/renew-vless.sh"
 wget -O renew-tr "https://raw.githubusercontent.com/Apeachsan91/server/main/renew-tr.sh"
+wget -O renew-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/renew-xray.sh"
+wget -O list-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/list-xray.sh"
+wget -O show-xray "https://raw.githubusercontent.com/Apeachsan91/server/main/show-xray.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Apeachsan91/server/main/cert.sh"
 chmod +x add-ws
 chmod +x add-xray
@@ -526,12 +531,17 @@ chmod +x add-tr
 chmod +x del-ws
 chmod +x del-vless
 chmod +x del-tr
+chmod +x del-xray
 chmod +x cek-ws
 chmod +x cek-vless
 chmod +x cek-tr
+chmod +x cek-xray
 chmod +x renew-ws
 chmod +x renew-vless
 chmod +x renew-tr
+chmod +x renew-xray
+chmod +x list-xray
+chmod +x show-xray
 chmod +x certv2ray
 cd
 rm -f ins-vt.sh
