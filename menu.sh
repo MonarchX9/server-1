@@ -115,7 +115,7 @@ echo -e " [${color1}61${color3}]    : Exit From VPS"
 echo -e ""
 echo -e "================================================================"
 echo -e ""
-read -p "Sila pilih bermula dari [ 1 - 53 ] : " menu
+read -p "Sila pilih bermula dari [ 1 - 61 ] : " menu
 echo -e ""
 case $menu in
 1)
