@@ -52,8 +52,8 @@ source /etc/wireguard/params
 	systemctl restart "wg-quick@$SERVER_WG_NIC"
 	service cron restart
 clear
-echo " Wireguard Account Deleted Successfully"
-echo " =========================="
-echo " Client Name : $user"
-echo " Expired  On : $exp"
-echo " =========================="
+echo -e ""
+echo " ==============================="
+echo " Akaun Wireguard berjaya dipadam"
+echo " ==============================="
+echo -e ""
