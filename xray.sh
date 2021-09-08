@@ -13,7 +13,7 @@ wget -qO web.tar.gz "https://github.com/Apeachsan91/server/raw/main/web.tar.gz"
 rm -rf /var/www/html/*
 tar xzf web.tar.gz -C /var/www/html
 rm -f web.tar.gz
-mkdir /kaizen/xray
+mkdir -p /kaizen/xray
 curl -L get.acme.sh | bash
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 sed -i "6s/^/#/" /etc/nginx/conf.d/${domain}.conf
