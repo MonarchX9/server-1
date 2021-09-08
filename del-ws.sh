@@ -42,8 +42,8 @@ rm -f /etc/v2ray/$user-tls.json /etc/v2ray/$user-none.json
 systemctl restart v2ray
 systemctl restart v2ray@none
 clear
-echo " V2RAY Account Deleted Successfully"
-echo " =========================="
-echo " Client Name : $user"
-echo " Expired On  : $exp"
-echo " =========================="
+echo -e ""
+echo " ================================="
+echo " Akaun V2ray Vmess berjaya dipadam"
+echo " ================================="
+echo -e ""
