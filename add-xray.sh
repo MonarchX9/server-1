@@ -33,7 +33,7 @@ source /var/lib/premium-script/ipvps.conf
 	expired=$(date -d "${exp}" +"%d %b %Y")
 	domain=$(cat /etc/v2ray/domain)
 	email=${user}@${domain}
-	echo -e "${user}\t${uuid}\t${exp}" >> /kaizen/xray/xray-clients.txt
+	echo -e "${user}\t${exp}" >> /kaizen/xray/xray-clients.txt
 	cat /usr/local/etc/xray/config.json | jq '.inbounds[0].settings.clients += [{"id": "'${uuid}'","flow": "xtls-rprx-direct","email": "'${email}'"}]' > /usr/local/etc/xray/config_tmp.json
 	mv -f /usr/local/etc/xray/config_tmp.json /usr/local/etc/xray/config.json
 	cat /usr/local/etc/xray/config.json | jq '.inbounds[1].settings.clients += [{"id": "'${uuid}'","email": "'${email}'"}]' > /usr/local/etc/xray/config_tmp.json
