@@ -62,48 +62,56 @@ echo -e " [${color1}22${color3}]    : Memadam akaun Shadowsocks"
 echo -e " [${color1}23${color3}]    : Menambah masa aktif akaun Shadowsocks"
 echo -e " [${color1}24${color3}]    : Senarai login akaun Shadowsocks"
 echo -e ""
-echo -e "============================[ ${color2}VMESS${color3} ]==========================="
-echo -e " [${color1}25${color3}]    : Membuat akaun Vmess"
-echo -e " [${color1}26${color3}]    : Memadam akaun Vmess"
-echo -e " [${color1}27${color3}]    : Menambah masa aktif akaun Vmess"
-echo -e " [${color1}28${color3}]    : Senarai login akaun Vmess"
+echo -e "=========================[ ${color2}Vray VMESS${color3} ]========================="
+echo -e " [${color1}25${color3}]    : Membuat akaun V2ray Vmess"
+echo -e " [${color1}26${color3}]    : Memadam akaun V2ray Vmess"
+echo -e " [${color1}27${color3}]    : Menambah masa aktif akaun V2ray Vmess"
+echo -e " [${color1}28${color3}]    : Senarai login akaun V2ray Vmess"
 echo -e " [${color1}29${color3}]    : Renew Certificate akaun V2RAY"
 echo -e ""
-echo -e "============================[ ${color2}VLESS${color3} ]==========================="
-echo -e " [${color1}30${color3}]    : Membuat akaun Vless"
-echo -e " [${color1}31${color3}]    : Memadam akaun Vless"
-echo -e " [${color1}32${color3}]    : Menambah masa aktif akaun Vless"
-echo -e " [${color1}33${color3}]    : Senarai login akaun Vless"
+echo -e "=========================[ ${color2}V2ray VLESS${color3} ]========================"
+echo -e " [${color1}30${color3}]    : Membuat akaun V2ray Vless"
+echo -e " [${color1}31${color3}]    : Memadam akaun V2ray Vless"
+echo -e " [${color1}32${color3}]    : Menambah masa aktif akaun V2ray Vless"
+echo -e " [${color1}33${color3}]    : Senarai login akaun V2ray Vless"
+echo -e ""
+echo -e "==========================[ ${color2}Xray Vless${color3} ]========================"
+echo -e " [${color1}34${color3}]    : Membuat akaun Xray Vless"
+echo -e " [${color1}35${color3}]    : Memadam akaun Xray Vless"
+echo -e " [${color1}36${color3}]    : Senarai akaun Xray Vless"
+echo -e " [${color1}37${color3}]    : Menambah masa aktif akaun Xray Vless"
+echo -e " [${color1}38${color3}]    : Senarai login akaun Vless"
+echo -e " [${color1}39${color3}]    : Maklumat akaun Xray Vless"
 echo -e ""
 echo -e "============================[ ${color2}TROJAN${color3} ]=========================="
-echo -e " [${color1}34${color3}]    : Membuat akaun Trojan"
-echo -e " [${color1}35${color3}]    : Memadam akaun Trojan"
-echo -e " [${color1}36${color3}]    : Menambah masa aktif akaun Trojan"
-echo -e " [${color1}37${color3}]    : Senarai login akaun Trojan"
+echo -e " [${color1}40${color3}]    : Membuat akaun Trojan"
+echo -e " [${color1}41${color3}]    : Memadam akaun Trojan"
+echo -e " [${color1}42${color3}]    : Menambah masa aktif akaun Trojan"
+echo -e " [${color1}43${color3}]    : Senarai login akaun Trojan"
 echo -e ""
 echo -e "===========================[ ${color2}SUBDOMAIN${color3} ]========================"
-echo -e " [${color1}38${color3}]    : Menambah domain untuk vps anda"
-echo -e " [${color1}39${color3}]    : Menambah ID Cloudflare"
-echo -e " [${color1}40${color3}]    : Membuat domain dan subdomain pointing ke Cloudflare"
+echo -e " [${color1}44${color3}]    : Menambah domain untuk vps anda"
+echo -e " [${color1}45${color3}]    : Menambah ID Cloudflare"
+echo -e " [${color1}46${color3}]    : Membuat domain dan subdomain pointing ke Cloudflare"
 echo -e ""
 echo -e "========================[ ${color2}BACKUP & RESTORE${color3} ]===================="
-echo -e " [${color1}41${color3}]    : Backup file using Email"
-echo -e " [${color1}42${color3}]    : Backup file using Nginx"
-echo -e " [${color1}43${color3}]    : Autobackup using Email"
-echo -e " [${color1}44${color3}]    : Autobackup using Nginx"
-echo -e " [${color1}45${color3}]    : Restore Backup"
+echo -e " [${color1}47${color3}]    : Backup file using Email"
+echo -e " [${color1}48${color3}]    : Backup file using Nginx"
+echo -e " [${color1}49${color3}]    : Autobackup using Email"
+echo -e " [${color1}50${color3}]    : Autobackup using Nginx"
+echo -e " [${color1}51${color3}]    : Restore Backup"
 echo -e ""
 echo -e "============================[ ${color2}SISTEM${color3} ]=========================="
-echo -e " [${color1}46${color3}]    : Menukar port servis"
-echo -e " [${color1}47${color3}]    : Webmin Menu"
-echo -e " [${color1}48${color3}]    : Limit Bandwith Speed Server"
-echo -e " [${color1}49${color3}]    : Jumlah penggunaan Ram VPS"
-echo -e " [${color1}50${color3}]    : Reboot VPS"
-echo -e " [${color1}51${color3}]    : Speedtest VPS"
-echo -e " [${color1}52${color3}]    : Displaying System Information"
-echo -e " [${color1}53${color3}]    : Info Script Auto Install"
-echo -e " [${color1}54${color3}]    : Update Script"
-echo -e " [${color1}55${color3}]    : Exit From VPS"
+echo -e " [${color1}52${color3}]    : Menukar port servis"
+echo -e " [${color1}53${color3}]    : Webmin Menu"
+echo -e " [${color1}54${color3}]    : Limit Bandwith Speed Server"
+echo -e " [${color1}55${color3}]    : Jumlah penggunaan Ram VPS"
+echo -e " [${color1}56${color3}]    : Reboot VPS"
+echo -e " [${color1}57${color3}]    : Speedtest VPS"
+echo -e " [${color1}58${color3}]    : Displaying System Information"
+echo -e " [${color1}59${color3}]    : Info Script Auto Install"
+echo -e " [${color1}60${color3}]    : Update Script"
+echo -e " [${color1}61${color3}]    : Exit From VPS"
 echo -e ""
 echo -e "================================================================"
 echo -e ""
@@ -210,69 +218,87 @@ renew-vless
 cek-vless
 ;;
 34)
-add-tr
+add-xray
 ;;
 35)
-del-tr
+del-xray
 ;;
 36)
-renew-tr
+list-xray
 ;;
 37)
-cek-tr
+renew-xray
 ;;
 38)
-add-dom
+cek-xray
 ;;
 39)
-add-cff
+show-xray
 ;;
 40)
-add-cfh
+add-tr
 ;;
 41)
-backupemail
+del-tr
 ;;
 42)
-backupnginx
+renew-tr
 ;;
 43)
-autobackupemail
+cek-tr
 ;;
 44)
-autobackupnginx
+add-dom
 ;;
 45)
-restore
+add-cff
 ;;
 46)
-change-port
+add-cfh
 ;;
 47)
-wbmn
+backupemail
 ;;
 48)
-limit-speed
+backupnginx
 ;;
 49)
-ram
+autobackupemail
 ;;
 50)
-reboot
+autobackupnginx
 ;;
 51)
-speedtest
+restore
 ;;
 52)
-info
+change-port
 ;;
 53)
-about
+wbmn
 ;;
 54)
-update
+limit-speed
 ;;
 55)
+ram
+;;
+56)
+reboot
+;;
+57)
+speedtest
+;;
+58)
+info
+;;
+59)
+about
+;;
+60)
+update
+;;
+61)
 exit
 cd
 clear
