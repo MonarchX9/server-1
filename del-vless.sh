@@ -41,8 +41,8 @@ sed -i "/^### $user $exp/,/^},{/d" /etc/v2ray/vnone.json
 systemctl restart v2ray@vless
 systemctl restart v2ray@none
 clear
-echo " Vless Account Deleted Successfully"
-echo " =========================="
-echo " Client Name : $user"
-echo " Expired On  : $exp"
-echo " =========================="
+echo -e ""
+echo " ================================="
+echo " Akaun V2ray Vless berjaya dipadam"
+echo " ================================="
+echo -e ""
