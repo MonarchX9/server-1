@@ -15,7 +15,7 @@ fi
 clear
   domain=$(cat /root/domain)
 	data=($(cat /kaizen/xray/xray-clients.txt | awk '{print $1}'))
-	data2=($(netstat -anp | grep ESTABLISHED | grep tcp6 | grep xray | grep -w 443 | awk '{print $5}' | cut -d: -f1 | sort | uniq))
+	data2=($(netstat -anp | grep ESTABLISHED | grep tcp6 | grep xray | grep -w 6443 | awk '{print $5}' | cut -d: -f1 | sort | uniq))
 	domain=$(cat /usr/local/etc/xray/domain)
 	touch /tmp/{ipvless.txt,ipvless-other.txt}
 	clear
