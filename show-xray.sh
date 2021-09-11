@@ -40,7 +40,7 @@ exp=$(grep -E "^" "/kaizen/xray/xray-clients.txt" | cut -d ' ' -f 3 | sed -n "${
 	uuid=$(cat /kaizen/xray/xray-clients.txt | grep -w "$user" | awk '{print $2}')
 	domain=$(cat /usr/local/etc/xray/domain)
 	exp=$(cat /kaizen/xray/xray-clients.txt | grep -w "$user" | awk '{print $3}')
-	exp_date=$(date -d"${exp}" "+%d %b %Y")
+	exp_date=$(date -d "${exp}" "+%d %b %Y")
 	cd
 	clear
 	echo -e ""
