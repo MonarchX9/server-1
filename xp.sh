@@ -167,7 +167,7 @@ do
 		mv -f /usr/local/etc/xray/config_tmp.json /usr/local/etc/xray/config.json
 		cat /usr/local/etc/xray/config.json | jq 'del(.inbounds[1].settings.clients[] | select(.id == "'${uuid}'"))' >/usr/local/etc/xray/config_tmp.json
 		mv -f /usr/local/etc/xray/config_tmp.json /usr/local/etc/xray/config.json
-		sed -i "/\b$user\b/d" /iriszz/xray/xray-clients.txt
+		sed -i "/\b$user\b/d" /kaizen/xray/xray-clients.txt
 	fi
 done < /kaizen/xray/xray-clients.txt
 unset expired
