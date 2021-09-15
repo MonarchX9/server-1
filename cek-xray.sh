@@ -13,16 +13,15 @@ echo "Only For Premium Users"
 exit 0
 fi
 clear
-  domain=$(cat /root/domain)
 	data=($(cat /kaizen/xray/xray-clients.txt | awk '{print $1}'))
 	data2=($(netstat -anp | grep ESTABLISHED | grep tcp6 | grep xray | grep -w 6443 | awk '{print $5}' | cut -d: -f1 | sort | uniq))
-	domain=$(cat /usr/local/etc/xray/domain)
+	domain=$(cat /root/domain)
 	touch /tmp/{ipvless.txt,ipvless-other.txt}
 	clear
 	echo -e ""
-  echo "-------------------------------";
-  echo "-----=[ Xray User Login ]=-----";
-  echo "-------------------------------";
+	echo -e "====================================="
+	echo -e "  Senarai User Xray Yang Sedang Login"
+	echo -e "-------------------------------------"
 	for user in "${data[@]}"
 	do
 		for ip in "${data2[@]}"
