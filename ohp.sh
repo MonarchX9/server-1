@@ -16,7 +16,7 @@ apt-get -y upgrade
 
 #Port Server
 Port_OpenVPN_TCP='1194';
-Port_Squid='8080';
+Port_Squid='3128';
 Port_OHP='2089';
 
 #Installing ohp Server
@@ -74,7 +74,7 @@ Wants=network.target
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/ohp -port 2089 -proxy 127.0.0.1:8080 -tunnel 127.0.0.1:1194
+ExecStart=/usr/local/bin/ohp -port 2089 -proxy 127.0.0.1:3128 -tunnel 127.0.0.1:1194
 Restart=always
 RestartSec=3
 
