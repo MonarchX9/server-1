@@ -57,7 +57,7 @@ http-proxy-option CUSTOM-HEADER ""
 END
 sed -i $MYIP2 /etc/openvpn/tcp-ohp.ovpn;
 
-# masukkan certificatenya ke dalam config client TCP 80
+# masukkan certificatenya ke dalam config client TCP 1194
 echo '<ca>' >> /etc/openvpn/tcp-ohp.ovpn
 cat /etc/openvpn/server/ca.crt >> /etc/openvpn/tcp-ohp.ovpn
 echo '</ca>' >> /etc/openvpn/tcp-ohp.ovpn
