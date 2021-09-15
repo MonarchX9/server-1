@@ -25,7 +25,7 @@ cp /usr/lib/x86_64-linux-gnu/openvpn/plugins/openvpn-plugin-auth-pam.so /usr/lib
 sed -i 's/#AUTOSTART="all"/AUTOSTART="all"/g' /etc/default/openvpn
 
 # restart openvpn dan cek status openvpn
-systemctl enable --now openvpn-server@server-tcp-80
+systemctl enable --now openvpn-server@server-tcp-1194
 systemctl enable --now openvpn-server@server-udp-2200
 /etc/init.d/openvpn restart
 /etc/init.d/openvpn status
@@ -34,12 +34,12 @@ systemctl enable --now openvpn-server@server-udp-2200
 echo 1 > /proc/sys/net/ipv4/ip_forward
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 
-# Buat config client TCP 80
-cat > /etc/openvpn/client-tcp-80.ovpn <<-END
+# Buat config client TCP 1194
+cat > /etc/openvpn/client-tcp-1194.ovpn <<-END
 client
 dev tun
 proto tcp
-remote xxxxxxxxx 80
+remote xxxxxxxxx 1194
 resolv-retry infinite
 route-method exe
 nobind
@@ -50,7 +50,7 @@ comp-lzo
 verb 3
 END
 
-sed -i $MYIP2 /etc/openvpn/client-tcp-80.ovpn;
+sed -i $MYIP2 /etc/openvpn/client-tcp-1194.ovpn;
 
 # Buat config client UDP 2200
 cat > /etc/openvpn/client-udp-2200.ovpn <<-END
@@ -92,13 +92,13 @@ cd
 # pada tulisan xxx ganti dengan alamat ip address VPS anda 
 /etc/init.d/openvpn restart
 
-# masukkan certificatenya ke dalam config client TCP 80
-echo '<ca>' >> /etc/openvpn/client-tcp-80.ovpn
-cat /etc/openvpn/server/ca.crt >> /etc/openvpn/client-tcp-80.ovpn
-echo '</ca>' >> /etc/openvpn/client-tcp-80.ovpn
+# masukkan certificatenya ke dalam config client TCP 1194
+echo '<ca>' >> /etc/openvpn/client-tcp-1194.ovpn
+cat /etc/openvpn/server/ca.crt >> /etc/openvpn/client-tcp-1194.ovpn
+echo '</ca>' >> /etc/openvpn/client-tcp-1194.ovpn
 
-# Copy config OpenVPN client ke home directory root agar mudah didownload ( TCP 80 )
-cp /etc/openvpn/client-tcp-80.ovpn /home/vps/public_html/client-tcp-80.ovpn
+# Copy config OpenVPN client ke home directory root agar mudah didownload ( TCP 1194 )
+cp /etc/openvpn/client-tcp-1194.ovpn /home/vps/public_html/client-tcp-1194.ovpn
 
 # masukkan certificatenya ke dalam config client UDP 2200
 echo '<ca>' >> /etc/openvpn/client-udp-2200.ovpn
