@@ -33,8 +33,8 @@ sed -i "6s/#//" /etc/nginx/conf.d/${domain}.conf
 #chown -R nobody.nogroup /kaizen/xray/xray.crt
 #chown -R nobody.nogroup /kaizen/xray/xray.key
 
-chown -R nobody.nogroup /etc/v2ray/v2ray.crt
-chown -R nobody.nogroup /etc/v2ray/v2ray.key
+#chown -R nobody.nogroup /etc/v2ray/v2ray.crt
+#chown -R nobody.nogroup /etc/v2ray/v2ray.key
 
 touch /kaizen/xray/xray-clients.txt
 sed -i "s/\tinclude \/etc\/nginx\/sites-enabled\/\*;/\t# include \/etc\/nginx\/sites-enabled\/\*;asd/g" /etc/nginx/nginx.conf
