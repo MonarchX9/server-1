@@ -14,8 +14,8 @@ exit 0
 fi
 clear
 	clear
-	echo -e "Delete Xray User"
-	echo -e "----------------"
+	echo -e "Memadam User Xray"
+	echo -e "-----------------"
 	read -p "Username : " user
 	echo -e ""
 	if ! grep -qw "$user" /kaizen/xray/xray-clients.txt; then
