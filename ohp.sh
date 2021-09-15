@@ -17,7 +17,7 @@ apt-get -y upgrade
 #Port Server
 Port_OpenVPN_TCP='80';
 Port_Squid='8080';
-Port_OHP='2088';
+Port_OHP='2089';
 
 #Installing ohp Server
 cd 
@@ -48,7 +48,7 @@ auth-nocache
 script-security 2
 tls-version-min 1.2
 tls-cipher TLS-ECDHE-ECDSA-WITH-AES-128-GCM-SHA256
-http-proxy xxxxxxxxx 2088
+http-proxy xxxxxxxxx 2089
 http-proxy-option VERSION 1.1
 http-proxy-option CUSTOM-HEADER ""
 http-proxy-option CUSTOM-HEADER "Host: "
@@ -74,7 +74,7 @@ Wants=network.target
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/ohp -port 2088 -proxy 127.0.0.1:8080 -tunnel 127.0.0.1:80
+ExecStart=/usr/local/bin/ohp -port 2089 -proxy 127.0.0.1:8080 -tunnel 127.0.0.1:80
 Restart=always
 RestartSec=3
 
