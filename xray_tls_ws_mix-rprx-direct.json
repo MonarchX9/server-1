@@ -36,8 +36,8 @@
           "minVersion": "1.2",
           "certificates": [
             {
-              "certificateFile": "/etc/v2ray/v2ray.crt",
-              "keyFile": "/etc/v2ray/v2ray.key"
+              "certificateFile": "/kaizen/xray/xray.crt",
+              "keyFile": "/kaizen/xray/xray.key"
             }
           ]
         }
