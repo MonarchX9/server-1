@@ -13,7 +13,7 @@ echo "Only For Premium Users"
 exit 0
 fi
 expired=$(date -d "${exp}" +"%d %b %Y")
-clear
+	clear
 	echo -e ""
 	echo -e "==============================="
 	echo -e "Username          Exp. Date"
@@ -22,7 +22,7 @@ clear
 	do
 		user=$(echo $expired | awk '{print $1}')
 		exp=$(echo $expired | awk '{print $3}')
-		exp_date=$(date -d "${exp}" "+%d %b %Y")
+		exp_date=$(date -d"${exp}" "+%d %b %Y")
 		printf "%-17s %2s\n" "$user" "$exp_date"
 	done < /kaizen/xray/xray-clients.txt
 	total=$(wc -l /kaizen/xray/xray-clients.txt | awk '{print $1}')
