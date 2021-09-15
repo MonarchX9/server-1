@@ -69,7 +69,7 @@ echo "   ---------------" | tee -a log-install.txt
 echo "   - OpenSSH                 : 22"  | tee -a log-install.txt
 echo "   - Dropbear                : 109, 143"  | tee -a log-install.txt
 echo "   - OpenVPN                 : TCP $ovpn, UDP $ovpn2, SSL 442"  | tee -a log-install.txt
-echo "   - Stunnel4                : 443, 777"  | tee -a log-install.txt
+echo "   - Stunnel4                : 587, 777"  | tee -a log-install.txt
 echo "   - OpenSSH + WebSocket     : 2084"  | tee -a log-install.txt
 echo "   - Dropbear + WebSocket    : 2085"  | tee -a log-install.txt
 echo "   - OpenVPN + WebSocket     : 2086"  | tee -a log-install.txt
@@ -83,7 +83,7 @@ echo "   - Shadowsocks-R           : 1443-1543"  | tee -a log-install.txt
 echo "   - SS-OBFS TLS             : 2443-2543"  | tee -a log-install.txt
 echo "   - SS-OBFS HTTP            : 3443-3543"  | tee -a log-install.txt
 echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
-echo "   - V2RAY Vmess None TLS    : 5443"  | tee -a log-install.txt
+echo "   - V2RAY Vmess None TLS    : 443"  | tee -a log-install.txt
 echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
 echo "   - V2RAY Vless None TLS    : 8880"  | tee -a log-install.txt
 echo "   - Xray Vless TCP XTLS     : 6443"  | tee -a log-install.txt
