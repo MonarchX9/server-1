@@ -19,9 +19,6 @@ touch /etc/trojan/akun.conf
 # install v2ray
 wget https://raw.githubusercontent.com/Apeachsan91/server/main/go.sh && chmod +x go.sh && ./go.sh
 
-#install xray
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
-
 rm -f /root/xray.sh
 rm -f /root/go.sh
 
@@ -451,6 +448,9 @@ cat <<EOF > /etc/trojan/config.json
     }
 }
 EOF
+
+#install xray
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
 
 cat <<EOF> /etc/systemd/system/trojan.service
 [Unit]
