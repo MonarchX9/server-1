@@ -17,8 +17,8 @@ source /var/lib/premium-script/ipvps.conf
 
 	clear
   	echo -e ""
-	echo -e "Add Xray User"
-	echo -e "-------------"
+	echo -e "Menambah User Xray"
+	echo -e "------------------"
 	read -p "Username : " user
 	if grep -qw "$user" /kaizen/xray/xray-clients.txt; then
 		echo -e ""
