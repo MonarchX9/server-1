@@ -16,7 +16,7 @@ fi
 	echo -e "Menambah Masa Aktif User Xray"
 	echo -e "-----------------------------"
 	read -p "Username : " user
-	if ! grep -qw "$user" /iriszz/xray/xray-clients.txt; then
+	if ! grep -qw "$user" /kaizen/xray/xray-clients.txt; then
 		echo -e ""
 		echo -e "User '$user' does not exist."
 		echo -e ""
