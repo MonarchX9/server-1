@@ -30,10 +30,8 @@ chmod +x /root/.acme.sh/acme.sh
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
 uuid=$(cat /proc/sys/kernel/random/uuid)
-
-#install xray
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
-
+chown -R nobody.nogroup /etc/v2ray/v2ray.crt
+chown -R nobody.nogroup /etc/v2ray/v2ray.key
 cat> /etc/v2ray/config.json << END
 {
   "log": {
@@ -452,6 +450,12 @@ cat <<EOF > /etc/trojan/config.json
     }
 }
 EOF
+
+chown -R nobody.nogroup /etc/v2ray/v2ray.crt
+chown -R nobody.nogroup /etc/v2ray/v2ray.key
+
+#install xray
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
 
 cat <<EOF> /etc/systemd/system/trojan.service
 [Unit]
