@@ -44,7 +44,7 @@ source /var/lib/premium-script/ipvps.conf
 echo -e "===========-XRAY/VLESS-=========="
 echo -e "Remarks        : ${user}"
 echo -e "IP             : ${MYIP}"
-echo -e "Port XTLS      : 80"
+echo -e "Port XTLS      : 8080"
 echo -e "id             : ${uuid}"
 echo -e "Encryption     : none"
 echo -e "Flow           : xtls-rprx-direct"
