@@ -75,7 +75,7 @@ echo "   - Dropbear + WebSocket    : 2085"  | tee -a log-install.txt
 echo "   - OpenVPN + WebSocket     : 2086"  | tee -a log-install.txt
 echo "   - Stunnel + WebSocket     : 2088"  | tee -a log-install.txt
 echo "   - OpenVPN + OHP Squid     : 2089"  | tee -a log-install.txt
-echo "   - Squid Proxy             : 3128, 8080 (limit to IP Server)"  | tee -a log-install.txt
+echo "   - Squid Proxy             : 3128, 8000 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - Badvpn                  : 7100, 7200, 7300"  | tee -a log-install.txt
 echo "   - Nginx                   : 81"  | tee -a log-install.txt
 echo "   - Wireguard               : 7070"  | tee -a log-install.txt
@@ -86,7 +86,7 @@ echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
 echo "   - V2RAY Vmess None TLS    : 443"  | tee -a log-install.txt
 echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
 echo "   - V2RAY Vless None TLS    : 8880"  | tee -a log-install.txt
-echo "   - Xray Vless TCP XTLS     : 80"  | tee -a log-install.txt
+echo "   - Xray Vless TCP XTLS     : 8080"  | tee -a log-install.txt
 echo "   - Trojan                  : 2087"  | tee -a log-install.txt
 #echo "   - L2TP/IPSEC VPN          : 1701"  | tee -a log-install.txt
 #echo "   - PPTP VPN                : 1732"  | tee -a log-install.txt
