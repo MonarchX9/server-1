@@ -553,5 +553,5 @@ chmod +x certv2ray
 cd
 rm -f ins-vt.sh
 cp /root/domain /etc/v2ray
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && screen -S xray ./xray.sh
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && ./xray.sh
 cp /root/domain /etc/v2ray
