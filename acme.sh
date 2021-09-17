@@ -3230,7 +3230,7 @@ _on_before_issue() {
     if [ "$_currentRoot" = "$NO_VALUE" ]; then
       _info "Standalone mode."
       if [ -z "$Le_HTTPPort" ]; then
-        Le_HTTPPort=83
+        Le_HTTPPort=80
         _cleardomainconf "Le_HTTPPort"
       else
         _savedomainconf "Le_HTTPPort" "$Le_HTTPPort"
