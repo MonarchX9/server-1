@@ -29,6 +29,10 @@ chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
+
+# install xray
+wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && ./xray.sh
+
 uuid=$(cat /proc/sys/kernel/random/uuid)
 cat> /etc/v2ray/config.json << END
 {
@@ -552,6 +556,4 @@ chmod +x show-xray
 chmod +x certv2ray
 cd
 rm -f ins-vt.sh
-cp /root/domain /etc/v2ray
-wget https://raw.githubusercontent.com/Apeachsan91/server/main/xray.sh && chmod +x xray.sh && ./xray.sh
 cp /root/domain /etc/v2ray
