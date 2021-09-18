@@ -122,7 +122,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 
 # install squid
 cd
-apt -y install squid
+apt -y install squid3
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Apeachsan91/server/main/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
